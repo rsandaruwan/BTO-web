@@ -1,0 +1,114 @@
+
+<!-- <div class="fix_back">
+    
+</div> -->
+<div class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+
+</div>
+
+<section class="back">
+
+  <div class="leaf_middle d-none d-md-block">
+    <div class="content d-flex flex-row-reverse">
+      <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+  </div>
+  <div class="container mt-5 pt-5">
+    <div class="row mt-0 mt-md-5">
+      <div class="row mt-xl-5">
+        <div class="col-12 col-md-4 pt-4 pt-md-0 ">
+          <div class="text_div ">
+            <h2 class="heading_1 white_text ">{{title}}</h2>
+            <hr class="w-50">
+           
+          </div>
+        </div>
+
+        <div class="col-12  col-md-4 ">
+          <div class="search_field d-flex ">
+            <div class=" col-1">
+              <mat-icon class="   white_text" style="font-size: 200%;" >search</mat-icon>
+            </div>
+           <div class="col-8 d-flex justify-content-center">
+            <input class="w-100 white_text" matInput placeholder="Search..."  (keyup)="search_by_text($event)">
+           </div>
+           
+       
+            <!-- <button class="green_btn btn col-3">search</button> -->
+          </div>
+         
+        </div>
+        <!-- <div class="col-6 col-md-3 mt-3 mt-md-0">
+  
+          <mat-form-field class="w-100 search_select" *ngIf="allcategory[0]">
+            <mat-label></mat-label>
+            <span matPrefix class="prefix">Category &nbsp;</span>
+            <mat-select value="" [(ngModel)]="categoryOption"  (valueChange)="get_subcategories()" >
+              <mat-option  value="">All Categories</mat-option> 
+              <mat-option *ngFor="let category of allcategory" [value]="category.category_id">
+                {{category.category_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+        <div class="col-12 col-md-3 mt-3 mt-md-0">
+  
+          <mat-form-field class=" w-100 search_select" *ngIf="subcategory[0]">
+            <mat-label></mat-label>
+            <span matPrefix class="prefix">Filter By &nbsp;</span>
+            <mat-select value="" [(ngModel)]="subcategoryOption" [disableOptionCentering]="true" (valueChange)="subcategory_select()">
+              <mat-option  value="" >All </mat-option> 
+              <mat-option *ngFor="let category of subcategory" [value]="category.sub_category_id">
+                {{category.sub_category_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+       
+      </div>
+    </div>
+    <div class="row mt-4 px-0 px-md-5">
+     
+    </div>
+  </div>
+  <div class="container  products">
+    <div class="row d-none mobile_top"></div>
+    <div class="row px-0 px-md-5 product_data" >
+      <div class="col-6 col-md-4 col-xl-3 px-3 px-md-5 mt-5 mb-md-4 " *ngFor=" let product of products_variants">
+        <app-product [product]="product"></app-product>
+      </div>
+      <div class="col-4   m-auto" *ngIf="products_variants.length==0">
+        <h2 class="white_text">{{noresult_text}}</h2>
+      </div>
+    </div>
+    <div class="row hero_text_bottom d-block d-md-none"></div>
+    
+    <div class="row mb-5 mobile_bottom">
+      <div class="col-3 m-auto text-center">
+        <div class="text-center">
+          <div class="row m-auto overflow-hidden">
+
+            <a href="" class=" col-2 mx-auto" *ngFor="let pages of pagination">
+              <p class="px-2 mb-0 white_text">{{pages}}</p>
+              <hr class="w-100 mt-0">
+            </a>
+
+            <a href="" class=" col-2 mx-auto" *ngIf="more_pagination">
+              <mat-icon role="img" aria-hidden="true" dta-mat-icon-type="font"
+                class="mat-icon notranslate material-icons mat-icon-no-color"
+                data-mat-icon-type="font">arrow_forward_ios</mat-icon>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+  
+</section>

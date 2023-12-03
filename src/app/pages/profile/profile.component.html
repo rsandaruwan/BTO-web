@@ -1,0 +1,178 @@
+
+<!-- <app-side-nav class="m-auto" #side_nav id="side_nav" [items]="items" (toview)="toview($event)"></app-side-nav>  -->
+
+<div class="parent-container w-100 back overflow-hidden">
+
+
+
+  <div class="container-fluid px-0">
+    <div class="row">
+      <div class="col-12 col-md-11 col-lg-10 m-auto">
+        <div class="row ">
+          <div class="col-2 px-0 mt-5  d-none d-md-block">
+            <div class="row mt-5 position-fixed h-100">
+
+              <div class="col-lg-12 col-md-8 m-auto mt-5  mt-4 ">
+                <div class="text_div mt-5">
+                  <h2 class="heading_1 white_text ">{{selected_section_text}}</h2>
+                  <hr class="w-50">
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <app-side-nav class="m-auto" #side_nav id="side_nav" [items]="items"
+                  (toview)="toview($event)"></app-side-nav>
+              </div>
+            </div>
+
+          </div>
+          <div class=" col-12 col-md-12 col-lg-10">
+            <!-- my_profile -->
+            <div #page id="my_profile" [class]="'h-100 pt-5  position-relative bg-1 page section' ">
+              <div class="d-grid align-items-center w-100 h-100">
+                <app-profile-information></app-profile-information>
+              </div>
+            </div>
+            <!-- Shipping_details -->
+            <div #page id="Shipping_details" [class]="'h-100  position-relative bg-1 page section' ">
+              <div class="d-grid align-items-center w-100 h-100">
+                <app-profile-shoping-details></app-profile-shoping-details>
+              </div>
+            </div>
+            <!-- change_password -->
+            <div #page id="change_password" [class]="'h-100  position-relative bg-1 page section' ">
+              <div class="d-grid align-items-center w-100 h-100">
+                <app-profile-change-password></app-profile-change-password>
+              </div>
+            </div>
+            <!-- Saved Carts -->
+            <div #page id="saved_carts" [class]="'h-100  position-relative bg-1 page section' ">
+              <div class="row h-100 mt-5 d-grid align-items-center">
+
+              </div>
+            </div>
+            <!-- Past Orders -->
+            <div #page id="past_orders" [class]="'h-100  position-relative bg-1 page section' ">
+              <div class="row h-100 mt-5 d-grid align-items-center">
+
+              </div>
+            </div>
+            <!-- Track My Order -->
+            <div #page id="track_my_order" [class]="'h-100  position-relative bg-1 page section' ">
+              <div class="row h-100 mt-5 d-grid align-items-center">
+
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <div #page id="instagram_feed"
+          [class]="'  footer_section position-relative  page section d-grid align-items-end' ">
+          <div class="container-fluid">
+            <div class="row my-5 text-center">
+              <!-- <h4 class="white_text" >Follow Us on Instagram @backtoorigins.lk</h4> -->
+
+            </div>
+            <div class="row px-0" id="box1" *ngIf="instagram_data">
+              <ng-container *ngFor="let data of instagram_data.media.data;let i=index" class=" instagram_box">
+                <div *ngIf="data.media_type=='IMAGE' && i<5" class="  col m-auto p-0">
+                  <a href={{data.permalink}}>
+                    <img src={{data.media_url}} alt=" the back to origins " class="instagram_box_img w-100 h-100" srcset="">
+                  </a>
+                </div>
+              </ng-container>
+
+
+            </div>
+            <div class="row footer_sec ">
+              <div class="col-10 mx-auto">
+                <div class="row my-5">
+                  <div class="col-4 col-md-6">
+                    <div class="row">
+                      <div class="col-4 col-md-2"> <img class="w-100"
+                          src="assets/images/BTO-Verticle-Logo-light-green-back-darkbrown.webp"
+                          alt="back to origins logo" srcset=""></div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-12 col-md-2"><a rel="back to origins home" href="#">
+                          <p class="white_text paragraph">Home</p>
+                        </a>
+                      </div>
+                      <div class="col-12 col-md-2"><a rel="back to origins about us" href="/about_us">
+                          <p class="white_text paragraph">About Us</p>
+                        </a>
+                      </div>
+                      <div class="col-12 col-md-2"><a rel="back to origins products" href="/products">
+                          <p class="white_text paragraph">Products</p>
+                        </a>
+                      </div>
+                      <div class="col-12 col-md-2"><a rel="back to origins recipes"  href="/recipes">
+                          <p class="white_text paragraph">Recipes</p>
+                        </a>
+                      </div>
+                      <div class="col-12 col-md-2"><a rel="back to origins contact us" href="/contact_us">
+                          <p class="white_text paragraph">Contact Us</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-6">
+                    <div class="row">
+                      <div class="col-12 col-md-5">
+                        <h3 class="white_text">Connect with us</h3>
+                      </div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-6 col-md-2">
+                        <div class="row">
+                          <div class="col-4"><img src="assets/images/facebook.webp" class="w-50"
+                              alt="back to origins facebook" srcset=""></div>
+                          <div class="col-8"> <a rel="back to origins facebook" href="https://www.facebook.com/backtoorgins?mibextid=ZbWKwL">
+                              <p class="white_text paragraph">Facebook</p>
+                            </a></div>
+                        </div>
+
+                      </div>
+                      <div class="col-6 col-md-2">
+                        <div class="row">
+                          <div class="col-4"><img src="assets/images/insta.webp" class="w-100"
+                              alt="back to origins instagram" srcset=""></div>
+                          <div class="col-8"> <a  rel="back to origins instargram"  href="https://instagram.com/backtoorigins.lk?igshid=OGQ2MjdiOTE=">
+                              <p class="white_text paragraph">Instargram</p>
+                            </a></div>
+                        </div>
+
+                      </div>
+                      <div class="col-6 col-md-2">
+                        <div class="row">
+                          <div class="col-4"><img src="assets/images/linkdin.webp" class="w-100"
+                              alt="back to origins linkedin" srcset=""></div>
+                          <div class="col-8"> <a rel="back to origins linkdin" href="https://www.linkedin.com/company/back-to-origins/">
+                              <p class="white_text paragraph">linkedin</p>
+                            </a></div>
+                        </div>
+                      </div>
+
+                      <div class="col-6 col-md-2">
+                        <div class="row">
+                          <div class="col-4"><img src="assets/images/tiktok.webp" class="w-100"
+                              alt="back to origins tiktok" srcset=""></div>
+                          <div class="col-8"> <a rel="back to origins tictok" href="#">
+                              <p class="white_text paragraph">TikTok</p>
+                            </a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div #scroll_btn class="scroll_btn d-none d-md-block" (click)="scrollbtnclick()"> </div>

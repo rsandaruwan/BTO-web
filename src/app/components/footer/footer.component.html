@@ -1,0 +1,21 @@
+<div #page id="instagram_feed" [class]="'   position-relative bg-1 page section d-grid align-items-end' " style="height: 100vh;">
+  <div class="container-fluid p-0">
+    <div class="row my-5 text-center">
+      <!-- <h4 class="white_text" >Follow Us on Instagram @backtoorigins.lk</h4> -->
+
+    </div>
+    <div class="row px-0" id="box1" *ngIf="instagram_data">
+      <ng-container  *ngFor="let data of instagram_data.media.data;let i=index" class=" instagram_box">
+        
+        <div *ngIf="data.media_type=='IMAGE' && i<5" class="  col m-auto p-0">
+          <a rel="back to origine" href={{data.permalink}}>
+            <img  src={{data.media_url}} alt="thebacktoorigins instergram"  class="instagram_box_img w-100 h-100" srcset="">
+          </a>
+        </div>
+      </ng-container >
+      
+
+    </div>
+   <app-footer-sec></app-footer-sec>
+  </div>
+</div>

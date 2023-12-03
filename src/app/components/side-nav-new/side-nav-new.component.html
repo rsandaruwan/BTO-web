@@ -1,0 +1,87 @@
+<div class="side_nav_parent">
+
+
+  <mat-drawer-container class="example-container" (mouseleave)="panelOpenState=!panelOpenState; drawer.close();">
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened style="overflow: hidden;">
+      <div id="side_nav" class="side_nav">
+
+        <div class="text_div invisible ">
+          <!-- <h2 class="heading_1 white_text ">{{selected_section_text}}</h2> -->
+          <hr class="w-50 my-4">
+        </div>
+
+
+
+        <div #collapseDiv class="points  " id="collapseDiv">
+          <div *ngFor="let element of items ">
+
+            <div id="point_{{element.id}}" class="point " #item (click)="callparent1(element)">
+
+              <div class="w-100 row">
+                <div class="col-2">
+                  <div class="ball" *ngIf="element.name"></div>
+                </div>
+                <div id="{{element.id}}" class="col-10 text snc" (click)="activate(element.id)">{{element.name}} </div>
+
+
+              </div>
+            </div>
+            <div *ngFor="let child of element.children ">
+
+              <div *ngIf="element.active && child.active" id="point_child_{{child.id}}" class="point_child " #item>
+                <div class="w-100 row">
+                  <div class="col-2">
+                    <div class="white_ball"></div>
+                  </div>
+                  <div id="{{element.id}}" class="col-10 text  white_text  snc" (click)="activate(child.id)">
+                    {{child.name}}</div>
+                </div>
+              </div>
+              <div *ngIf="element.active && !child.active" id="point_child_{{child.id}}" class="point_child " #item>
+                <div class="w-100 row">
+                  <div class="col-2">
+                    <div class="ball"></div>
+                  </div>
+                  <div id="{{element.id}}" class="col-10 text small_text snc" (click)="activate(child.id)">
+                    {{child.name}}</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="line"></div>
+
+
+
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <ng-container *ngIf="panelOpenState">
+        <div style="min-width: 15vw; height: 1px;"> </div>
+      </ng-container>
+
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+
+
+
+  <div class="text_div_fix  ">
+    <h2 class="heading_1_thin white_text ">{{selected_section_text}}</h2>
+    <hr class="w-50 m-0">
+  </div>
+  <button type="button" class="flo btn p2" mat-button (click)="panelOpenState=!panelOpenState; drawer.toggle();"
+    (mouseenter)="panelOpenState=!panelOpenState; drawer.open();">
+    <mat-icon *ngIf="panelOpenState" class="m-auto">keyboard_double_arrow_left</mat-icon>
+    <mat-icon *ngIf="!panelOpenState" class="m-auto">keyboard_double_arrow_right</mat-icon>
+  </button>
+</div>
+<script>
+  function scrollToDiv(target) {
+    // To Scroll to Specfic Section
+    fv.data("fullView").scrollTo(target);
+  }
+</script>

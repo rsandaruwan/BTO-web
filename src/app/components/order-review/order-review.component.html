@@ -1,0 +1,235 @@
+<div class="row mt-5">
+  <div class="col-12 mb-4">
+    <div class="text_div_fix col-4 ">
+      <h2 class="heading_1_thin white_text ">Check Out</h2>
+      <hr class="w-50 m-0">
+    </div>
+  </div>
+  <div class="col-12 col-md-5 mx-auto">
+    <div class=" w-100">
+      <div class="col-12 mx-auto mb-2 table_row d-grid align-items-center">
+        <p class="white_text mx-auto text-center m-0">Payment Method</p>
+      </div>
+      <div class="col-12 mx-auto data_row"></div>
+    </div>
+    <div class="w-100 mt-4">
+      <div class="col-12 mx-auto mb-2 table_row d-grid align-items-center">
+        <p class="white_text mx-auto text-center m-0">Select Currency</p>
+      </div>
+      <div class="col-12 mx-auto data_row  p-3">
+        <p class="white_text w-75 mx-auto label_text text-center">Tell us your preferred CurrencyForeign currency transactions are applicable for cards issued outside of USA.</p>
+        <div class="w-25 mx-auto">
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="delivery_option"
+          >
+      
+            <div class="row mb-4 ">
+              <mat-radio-button class="example-radio-button col-1 m-0 "  value="leave" > </mat-radio-button> 
+              <div class="col-3 ">
+                 <p class="label_text white_text mb-1 ">USD</p>
+                </div>
+            </div>
+            <div class="row mb-4 w-100">
+              <mat-radio-button class="example-radio-button col-1 m-0 " value="meet" > </mat-radio-button> 
+              <div class="col-3 ">
+                 <p class="label_text white_text mb-1">AUD </p>
+                </div>
+            </div>
+            
+        </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="w-100  mt-4">
+      <div class="col-12 mx-auto mb-2 table_row d-grid align-items-center">
+        <p class="white_text mx-auto text-center m-0">Delivery Options</p>
+      </div>
+      <div class="col-12 mx-auto data_row  p-3">
+        <p class="white_text label_text text-center">Tell us how you want your order delivered.</p>
+        <p class="warning_text w-75 mx-auto small_text text-start">Note: If you are under quarantine please select the ‘Leave at door/gate’ option.</p>
+        <div class="w-75 mx-auto">
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="delivery_option"
+          >
+      
+            <div class="row mb-4">
+              <mat-radio-button class="example-radio-button col-1 m-0 "  value="leave" > </mat-radio-button> 
+              <div class="col-11 ">
+                 <p class="label_text white_text mb-1">Leave at door/gate (Contactless delivery)</p>
+                </div>
+            </div>
+            <div class="row mb-4 w-100">
+              <mat-radio-button class="example-radio-button col-1 m-0 " value="meet" > </mat-radio-button> 
+              <div class="col-11 ">
+                 <p class="label_text white_text mb-1">Meet at door/ gate </p>
+                </div>
+            </div>
+            
+        </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="cartname_div p-3">
+      <div class="row px-2">
+        <div class="col-12 input_div">
+          <input type="text" placeholder="Cart Name">
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <div class="col-12 mx-auto mb-2 table_row d-grid align-items-center">
+      <p class="white_text mx-auto text-center m-0">Order Review</p>
+    </div>
+    <div class="col-12  mx-auto data_row p-3">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="c_33">
+            <div class="table_th_data">
+              <div class="table_heading">
+                <p> Product Name</p>
+              </div>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let row" class="c_33">
+            <div class="table_td_data table_td_first_data">
+              <div class="table_data first_data">
+                <div class="row img_row">
+                  <div class="col-3">
+                    <img class="w-100" src="assets/images/product1.webp" alt="the back to origins product review">
+                  </div>
+                  <div class="col-8 img_row_p">
+                    <p>{{row.id}} Ceylon Aromatic All Purpose Seasoning</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="c_22">
+            <div class="table_th_data">
+              <div class="table_heading">
+                <p>Price</p>
+              </div>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let row" class="c_22">
+            <div class="table_td_data">
+              <div class="table_data py-4">
+                <p>{{row.name}}</p>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="c_22">
+            <div class="table_th_data">
+              <div class="table_heading">
+                <p>Qty</p>
+              </div>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let row" class="c_22">
+            <div class="table_td_data">
+              <div class="table_data ">
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-2 px-0 py-4"><mat-icon>do_not_disturb_on</mat-icon></div>
+                  <div class="col-4 px-1 py-4">
+                    <p>{{row.progress}}</p>
+                  </div>
+                  <div class="col-2 px-0 py-4 "><mat-icon>add_circle</mat-icon></div>
+                  <div class="col-2"></div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+
+       
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+     
+    </div>
+    <div class="data_pannel mt-3">
+      <div class="row py-2">
+        <div class="col-10">Item Count</div>
+        <div class="col-2 text-center">05</div>
+      </div>
+      <div class="row py-2">
+        <div class="col-10">Sub Total</div>
+        <div class="col-2 text-center">05</div>
+      </div>
+      <div class="row py-2">
+        <div class="col-10">Delivery Charges</div>
+        <div class="col-2 text-center">05</div>
+      </div>
+      <!-- <div class="row py-2">
+        <div class="col-10">Loyalty Discounts</div>
+        <div class="col-2 text-center">05</div>
+      </div> -->
+      <div class="row py-2">
+        <div class="col-10">Other Discounts</div>
+        <div class="col-2 text-center">05</div>
+      </div>
+      <!-- <div class="row py-2">
+        <div class="col-10">Saving Discounts</div>
+        <div class="col-2 text-center">05</div>
+      </div>
+      <div class="row py-2">
+        <div class="col-10">Total Discounts</div>
+        <div class="col-2 text-center">05</div>
+      </div> -->
+      <div class="row py-2">
+        <div class="col-6">Use Coupon Code
+          <p class="small_text">(If you have any Coupon Code please enter here)</p>
+        </div>
+        <div class="col-6 h-100 p-0 coupon">
+          <div class="h-100 col-12 input_div p-3">
+            <div class="col-8">
+              <input type="text" placeholder=" Coupon Code">
+            </div>
+
+          </div>
+          <div class="coupon_send_btn d-flex col-4">
+            <i class="material-icons m-auto md-24">send</i>
+            <!-- <mat-icon  class="icon">send</mat-icon> -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="total_div p-3">
+      <div class="row">
+        <div class="col-8">Total</div>
+        <div class="col-4 text-center">323 Rs</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a  rel="back to origins products" href="/products"><button class="btn dark_gray_btn w-100 p-3 mt-3" >Continue Shopping</button></a>
+      </div>
+      <div class="col-6">
+        <button class="btn green_btn w-100 p-3 mt-3" >Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

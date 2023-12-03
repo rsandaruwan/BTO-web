@@ -1,0 +1,330 @@
+<div class="row  pt-5">
+  <div class="col-12 pt-5  mb-4">
+    <div class="text_div_fix col-8 ">
+      <h2 class="heading_1_thin white_text ">Check Out</h2>
+      <hr class="w-50 m-0">
+    </div>
+  </div>
+  <div class="col-11 mx-auto mb-2 table_row d-grid align-items-center">
+    <p class="white_text mx-auto text-center m-0">Shipping Details</p>
+  </div>
+  <div class="col-11 mx-auto h-75 data_row">
+    <form>
+      <div class="row">
+
+        <div class="col-12 col-md-6 py-4 px-3">
+          <div class="w-100  my-1">
+            <mat-label>
+              <p class="white_text label_text">Shipping Method</p>
+            </mat-label>
+
+            <mat-form-field class=" w-100 search_select">
+
+              <mat-select [(value)]="subcategoryOption" (valueChange)="select_delivery_method()">
+                <!-- <mat-option [value]="1" class="text-start">Get delivered to your address (AUS$10)</mat-option> -->
+                <!-- <mat-option [value]="2" class="text-start">Pickup from store (AUS$0.00)</mat-option> -->
+                <!-- <mat-option [value]="3" class="text-start">Pickup from Ware-House (AUS$0.00) </mat-option> -->
+                <ng-container *ngFor="let detail of shipping_options">
+                  <mat-option [value]="detail.method_type" class="text-start">{{detail.method_name}}  ({{currency}}{{detail.cost}})  </mat-option>
+                </ng-container>
+               
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div *ngIf="subcategoryOption==2">
+            <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="selected_store"
+            
+            >
+        
+            <ng-container  *ngFor="let store of stores;let x=index">
+              <div class="row mb-4 ">
+                <mat-radio-button class="example-radio-button col-1 m-0 " (change)="select_delivery_method()"  [value]="x" > </mat-radio-button> 
+                <div class="col-7 ">
+                   <p class="label_text white_text mb-1 ">{{store.address_name}},{{store.location_no_or_lane}},{{store.street_name}},{{store.city}},</p>
+                  </div>
+              </div>
+            </ng-container>
+            
+              
+          </mat-radio-group>
+          </div>
+          <div *ngIf="subcategoryOption==3">
+            <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="selected_wareHouses"
+            
+            >
+        
+            <ng-container  *ngFor="let warehouses of WareHouses;let x=index">
+              <div class="row mb-4 ">
+                <mat-radio-button class="example-radio-button col-1 m-0 " (change)="select_delivery_method()"  [value]="x" > </mat-radio-button> 
+                <div class="col-7 ">
+                   <p class="label_text white_text mb-1 ">{{warehouses.address_name}},{{warehouses.location_no_or_lane}},{{warehouses.street_name}},{{warehouses.city}},</p>
+                  </div>
+              </div>
+            </ng-container>
+            
+              
+          </mat-radio-group>
+          </div>
+
+
+
+          <div class="w-100">
+            <h3 class="white_text topic  my-2">Billing details</h3>
+
+
+            <div *ngIf="user"><mat-checkbox (ngModelChange)="SameAsMyDetails()" [(ngModel)]="same_as_my_details"
+                class="example-margin white_text">same as my details</mat-checkbox>
+            </div>
+            <mat-label>
+              <p class="white_text label_text my-2">Your Name</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" (keyup)="billing_namePress()"
+                [formControl]="BillingNameFormControl" placeholder="Name">
+
+              <mat-error class="pt-1" *ngIf="BillingNameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">Your Email</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="email" matInput class="w-100 search_select" placeholder="Email" [formControl]="BillingEmailFormControl">
+              <mat-error class="pt-1"
+                *ngIf="BillingEmailFormControl.hasError('email') && !BillingEmailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error class="pt-1" *ngIf="BillingEmailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">Your Phone</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="number" matInput class="w-100 search_select" placeholder="Phone No" (keyup)="billing_phonePress()"
+                [formControl]="BillingPhoneNumberFormControl">
+
+              <mat-error class="pt-1" *ngIf="BillingPhoneNumberFormControl.hasError('required')">
+                Phone No is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <h3 class="white_text topic my-3">Recipient Details {{same_as_billing_details}}</h3>
+            <mat-checkbox (change)="SameAsBilling($event.checked)" [checked]="same_as_billing_details" 
+              class="example-margin white_text">Same as Billing
+              details</mat-checkbox>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p
+                [ngClass]="(same_as_billing_details)?'gray_text label_text mb-2 pt-3':'white_text label_text mb-2 pt-3'">
+                Recipient Name</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="Name" [formControl]="RecipientNameFormControl">
+
+              <mat-error class="pt-1" *ngIf="RecipientNameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p
+                [ngClass]="(same_as_billing_details)?'gray_text label_text mb-2 pt-3':'white_text label_text mb-2 pt-3'">
+                Recipient Phone</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="email" matInput class="w-100 search_select" placeholder="Phone"
+                [formControl]="RecipientPhoneNumberFormControl">
+
+              <mat-error class="pt-1" *ngIf="RecipientPhoneNumberFormControl.hasError('required')">
+                Phone is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+
+        </div>
+        <div class="col-12 col-md-6 py-4 px-3 position-relative">
+
+
+          <mat-label>
+            <h3 class="white_text  topic  mb-2 ">Shipping Address</h3>
+          </mat-label>
+
+          <div class="w-100" *ngIf="user">
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [formControl]="ShipingAddresSelctionCityFormControl" (change)="select_delivery_address_method()">
+
+              <div class="row mb-4" *ngIf="user.delivery_info">
+                <mat-radio-button [checked]="!shiping_addres_selction_checked" class="example-radio-button col-1 m-0 "
+                  value='saved'> </mat-radio-button>
+                <div class="col-10 ">
+                  <p class="label_text white_text mb-1">Select from your saved address</p>
+                </div>
+              </div>
+              <div class="row mb-1">
+                <mat-radio-button [checked]="shiping_addres_selction_checked" class="example-radio-button col-1 m-0 "
+                  value='new'> </mat-radio-button>
+                <div class="col-10 ">
+                  <p class="label_text white_text mb-1">Enter a new address</p>
+                </div>
+              </div>
+
+
+
+            </mat-radio-group>
+
+
+            <mat-form-field *ngIf="this.shiping_addres_selction!='new'" class=" w-100 search_select">
+
+              <mat-select [(value)]="selected_delivery_info" (valueChange)="select_delivery_address()">
+                <ng-container *ngFor="let address of user.delivery_info;let i=index">
+                  <mat-option [value]="i" class="text-start">{{address.type}} | {{address.shipping_address_no}},
+                    {{address.shipping_address_street}}, {{address.shipping_address_city}}</mat-option>
+                </ng-container>
+
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+          <div class="row p-0 m-0">
+            <div class="col-6 p-0">
+              <mat-label>
+                <p class="white_text label_text mb-2 pt-3">Address Type</p>
+              </mat-label>
+              <mat-form-field class=" w-100 search_select">
+                <mat-select [(value)]="selected_shipping_address_type"
+                  [disabled]="selected_shipping_address_type_disable">
+                  <ng-container>
+                    <mat-option value="Home" class="text-start">Home</mat-option>
+                    <mat-option value="Work" class="text-start">Work</mat-option>
+                    <mat-option value="Other" class="text-start">Other</mat-option>
+                  </ng-container>
+
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-6 d-grid justify-content-center align-items-end" *ngIf="user">
+              <mat-checkbox
+                (ngModelChange)="SetAsDefault()"  [disabled]="setasdefault"   [formControl]="SetAsDefaultFormControl"  class="example-margin white_text">set as
+                default address</mat-checkbox>
+            </div>
+          </div>
+
+       
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">Address Name </p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="Address Name" [formControl]="ShippingAddressNameFormControl">
+
+              <mat-error class="pt-1" *ngIf="ShippingAddressNameFormControl.hasError('required')">
+                Address Name <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">House No or Lane</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="House No or Lane" [formControl]="ShippingAddressFormControl">
+
+              <mat-error class="pt-1" *ngIf="ShippingAddressFormControl.hasError('required')">
+                House No is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">Street Name</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="Street Name" [formControl]="ShippingStreetNameFormControl">
+
+              <mat-error class="pt-1" *ngIf="ShippingStreetNameFormControl.hasError('required')">
+                Street Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">City</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="City" [formControl]="ShippingCityFormControl">
+
+              <mat-error class="pt-1" *ngIf="ShippingCityFormControl.hasError('required')">
+                City is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">State/Territory</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <input type="text" matInput class="w-100 search_select" placeholder="State/Territory" [formControl]="ShippingStateFormControl">
+
+              <mat-error class="pt-1" *ngIf="ShippingStateFormControl.hasError('required')">
+                State/Territory is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="w-100">
+            <mat-label>
+              <p class="white_text label_text mb-2 pt-3">Notes</p>
+            </mat-label>
+            <mat-form-field class=" w-100 px-1  ">
+              <textarea matInput class="search_select" placeholder="Ex. It makes me feel..." [formControl]="NoteFormControl" rows="7"
+                style="padding: 0% !important;"></textarea>
+
+            </mat-form-field>
+         
+        </div>
+          <div class=" d-flex bottom-0 w-100" style="left: 0%;">
+            <button type="submit" class="btn mb-3  green_btn col-6 mx-auto p-3 mt-3 "
+              (click)="callparent()">Continue</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+<ng-container *ngIf="posting">
+<form #paymentForm id="ext-merchant-frm" action="https://api.uat.geniebiz.lk/public/v2/transactions" method="post"  accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+<input type="text" name="amount" id="amount" [value]="total" >
+<input type="text" name="currency" id="currency" [value]="'LKR'" >
+</form>
+</ng-container>

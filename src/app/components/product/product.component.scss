@@ -1,0 +1,65 @@
+
+.product{
+  display: inline-block;
+
+}
+
+.img-div{
+  max-height: 35vh;
+  overflow: hidden;
+  img{
+    border-radius: 20px;
+  }
+}
+.green_border1 {
+  border: 2px #b8e455 solid!important;
+  border-radius: 9px;
+}
+.black-text{
+  color: #110F10 !important;
+}
+.cart_btn {
+  background: #99bd41!important;
+  border: 1px transparent;
+  border-radius: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+  border: 1px solid #110f10;
+  mat-icon{
+    color: #ffffff;
+  }
+}
+.cart_btn1 {
+  background: #99bd41!important;
+  border: 1px transparent;
+  border-radius: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+  border: 1px solid #110f10;
+  ng-lottie{
+    width: 15% !important;
+  }
+}
+.cart_btn:hover {
+  background: #9abd4100!important;
+  border: 1px transparent;
+  border-radius: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #c3ff2b;
+  border: 1px solid #c3ff2b;
+  mat-icon{
+    color: #99bd41;
+  }
+}

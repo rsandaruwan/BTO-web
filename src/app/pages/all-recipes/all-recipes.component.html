@@ -1,0 +1,109 @@
+
+<div class="fix_back">
+
+</div>
+
+<div class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+
+</div>
+
+<section class="back">
+  <div class="leaf_middle d-none d-md-block">
+    <div class="content d-flex flex-row-reverse">
+      <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+  </div>
+  <div class="container mt-5 pt-5">
+    <div class="w-100 mt-0 mt-md-3 ">
+      <div class="col-12 mt-xl-5" *ngIf="product">
+        <div class="col-8 mt-xl-5 pt-5">
+          <div class="text_div pt-4 pt-md-0 ">
+            <p class="green_text paragraph m-0 p-0">Featured Recipes for </p>
+            <h2 class="heading_1 white_text mt-0">{{product.product_name}}</h2>
+            <hr class="w-75">
+          </div>
+
+        </div>
+      </div>
+      <div class="row " *ngIf="!product">
+        <div class="col-12 col-md-4 mt-xl-4">
+          <div class="text_div pt-4 pt-md-0">
+            <h2 class="heading_1 white_text mt-0">{{title}}</h2>
+            <hr class="w-100">
+          </div>
+        </div>
+        <!-- <div class="w-100 d-md-flex px-3 px-md-5"> -->
+       
+        <div class="col-12 col-md-5 mx-auto mt-5">
+          <div class="search_field d-flex ">
+            <div class=" col-1">
+              <mat-icon class="   white_text" style="font-size: 200%;" >search</mat-icon>
+            </div>
+           <div class="col-8 d-flex justify-content-center">
+            <input class="w-100 white_text" matInput placeholder="Search..."  (keyup)="search_by_text($event)">
+           </div>
+           
+       
+            <!-- <button class="green_btn btn col-3">search</button> -->
+          </div>
+         
+        </div>
+
+        <div class="col-12 col-md-3 mx-auto mt-5 ">
+
+          <mat-form-field class="w-100 search_select">
+            <mat-label></mat-label>
+            <span matPrefix class="prefix">Category &nbsp;</span>
+            <mat-select value="" [(ngModel)]="categoryOption" [disableOptionCentering]="true" (valueChange)="category_select()">
+              <mat-option value="">All Categories</mat-option>
+              <mat-option *ngFor="let category of allcategory" [value]="category.recipe_category_id">
+                {{category.recipe_category_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- </div> -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container  recipes">
+    <div class="row px-0 px-md-5" style="min-height: 80vh;">
+
+      <div *ngFor="let recipe of recipes" class="col-lg-4 col-md-6 col-11 m-auto  mt-5">
+        <app-recipe [recipe]="recipe"></app-recipe>
+      </div>
+      <div class="col-4 m-auto text-center" *ngIf="recipes?.length==0">
+        <h2 class="heading_2 white_text mt-0">{{no_result_text}}</h2>
+      </div>
+     
+    </div>
+    <!-- <div class="row my-5">
+      <div class="col-3 m-auto text-center">
+        <div class="text-center">
+          <div class="row m-auto overflow-hidden">
+
+            <a href="" class=" col-2 mx-auto" *ngFor="let pages of pagination">
+              <p class="px-2 mb-0 white_text">{{pages}}</p>
+              <hr class="w-100 mt-0">
+            </a>
+
+            <a href="" class=" col-2 mx-auto" *ngIf="more_pagination">
+              <mat-icon role="img" aria-hidden="true" dta-mat-icon-type="font"
+                class="mat-icon notranslate material-icons mat-icon-no-color"
+                data-mat-icon-type="font">arrow_forward_ios</mat-icon>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    </div> -->
+  </div>
+
+  <app-footer></app-footer>
+</section>

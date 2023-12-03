@@ -1,0 +1,123 @@
+<div class="row  px-3 px-md-4  ">
+  <div class="col-2 px-0 mx-auto round_image position-relative" style="z-index: 2;">
+    <img src="assets/images/product2.webp" alt="the back to origins product" srcset="">
+    <input type="file" id="profile" class="d-none">
+    <label for="profile" class="position-absolute round_image  profile_change_input">
+      <mat-icon class="m-auto ">photo_camera</mat-icon>
+    </label>
+
+  </div>
+  <div class="col-12 mx-auto mb-2 table_row d-grid align-items-center">
+    <p class="white_text mx-auto text-center m-0">Personal Information</p>
+  </div>
+  <div class="col-12 mx-auto data_row p-3">
+    <div class="row">
+      <div class="col-6">
+        <mat-label>
+          <p class="white_text label_text mb-2 pt-4">First Name</p>
+        </mat-label>
+        <div class="row">
+          <mat-form-field class=" col-3 mx-auto px-2 search_select ">
+            <mat-select [formControl]="selected" class="p-0">
+              <mat-option value="mr">Mr</mat-option>
+              <mat-option value="miss">Miss</mat-option>
+            </mat-select>
+
+          </mat-form-field>
+          <mat-form-field class=" col-8 mx-auto p-2 search_select ">
+            <input type="email" matInput class="w-100" placeholder="" [formControl]="firstNameFormControl">
+            <mat-error *ngIf="firstNameFormControl.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-label>
+          <p class="white_text label_text mb-2 pt-4">Email</p>
+        </mat-label>
+        <div class="row px-3">
+
+          <mat-form-field class=" col-12 mx-auto p-2 search_select ">
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. jhone@example.com"
+              class="w-100">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Email invalid
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-label>
+          <p class="white_text label_text mb-2 pt-4">Contact Number (Optional)</p>
+        </mat-label>
+        <div class="row">
+          <mat-form-field class=" col-3 mx-auto px-2 search_select ">
+            <mat-select [formControl]="countryCode" class="p-0">
+              <mat-option value="+45">+45</mat-option>
+              <mat-option value="+94">+95</mat-option>
+            </mat-select>
+
+
+          </mat-form-field>
+          <mat-form-field class=" col-8 mx-auto p-2 search_select ">
+            <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" matInput
+              class="w-100" [formControl]="mobileNumberFormControl" placeholder="XX-XXXXXXXX">
+            <mat-error
+              *ngIf="mobileNumberFormControl.hasError('password') && !mobileNumberFormControl.hasError('required')">
+              Mobile Number invalid
+            </mat-error>
+            <mat-error *ngIf="mobileNumberFormControl.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+      <div class="col-6">
+        <mat-label>
+          <p class="white_text label_text mb-2 pt-4">Last Name</p>
+        </mat-label>
+        <div class="row px-2">
+
+          <mat-form-field class=" col-12 mx-auto p-2 search_select ">
+            <input type="email" matInput class="w-100" [formControl]="lastNameFormControl" placeholder="Last Name">
+            <mat-error *ngIf="lastNameFormControl.hasError('required')">
+              Last Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <mat-label>
+          <p class="white_text label_text mb-2 pt-4">Birthday (Optional)</p>
+        </mat-label>
+        <div class="row px-2">
+          <div class="d-flex search_select w-100">
+            <mat-form-field class=" col-10  p-2  d-flex">
+              <input matInput [matDatepicker]="picker" [formControl]="birthdayFormControl">
+              <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+
+            </mat-form-field>
+            <div class="col-1">
+              <mat-datepicker-toggle matIconSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="row flex-row-reverse mt-4">
+
+          <button class="btn mb-3  green_btn col-10 mx-4 p-3 mt-3 ">Save</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

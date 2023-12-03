@@ -1,0 +1,41 @@
+img {
+  aspect-ratio: 1 !important;
+}
+.tag {
+  border-radius: 5px !important;
+  padding: 5%;
+}
+.recipe_card {
+  max-height: 660px !important;
+  overflow: hidden;
+  min-height: 524px;
+  position: relative;
+  background-color: #00000061;
+}
+.round_image {
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+.product_image_wrapper {
+  // width: 300px;
+  // min-height: 300px;
+  min-height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  aspect-ratio: 1.5;
+}
+.recipe_data {
+  // position: absolute;
+  bottom: 0%;
+}
+.to_bottom{
+  position: absolute;
+  bottom: 0%;
+}
+.recipe_heading {
+  font-family: Inter!important;
+  font-style: normal!important;
+  font-weight: 400!important;
+  font-size: 2em!important;
+  line-height: 48px!important;
+}

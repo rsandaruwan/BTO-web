@@ -1,0 +1,260 @@
+<div class="parent-container w-100 back overflow-hidden">
+  <div class="leaf_top d-none d-md-block">
+    <div class="content">
+      <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+  
+  </div>
+  <div class="leaf_middle d-none d-md-block">
+    <div class="content d-flex flex-row-reverse">
+      <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+  </div>
+  <div class="background_fix"></div>
+
+  <div class="container px-0 contact_back ">
+    <div class="row h-25 pt-5">
+
+      <div class="col-lg-6 col-12 mx-5 mt-5">
+        <div class="text_div mx-0 mx-md-5 mt-5">
+          <h2 class="heading_1 white_text pt-3">Contact Us</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+    </div>
+    <div class="row h-75">
+      <div class="col-10 h-100 px-0 m-auto">
+        <div class="row h-100 mt-5 p-0">
+
+          <div class="col-12 col-lg-7 h-75">
+            <div class="contact_from_back row p-0 mx-0">
+              <div class="col-12 col-md-5 image_side  position-relative overflow-hidden">
+                <img src="assets/images/top_plate.webp" alt="back to origins" class="main_img" srcset="">
+                <img src="assets/images/ingredient_plate2.webp" alt="back to origins" class="second_img" srcset="">
+              </div>
+              <div class="col-12 col-lg-7 px-5 pb-2 h-100 d-grid align-items-center">
+                <form class=" w-100">
+                  <div class="w-100 my-4">
+                    <mat-label class="white_text ">Your Name *</mat-label>
+                    <mat-form-field class="form_mat w-100">
+
+                      <input class="w-100" [formControl]="nameFormControl" style="padding: 0% !important;" matInput type="text">
+                    </mat-form-field>
+                  </div>
+                  <div class="w-100 my-4">
+                    <mat-label class="white_text ">Your Email *</mat-label>
+                    <mat-form-field class="form_mat w-100">
+
+                      <input class="w-100" [formControl]="emailFormControl"  style="padding: 0% !important;" matInput type="email">
+                      <mat-hint *ngIf="errors.email">{{errors['email']}}</mat-hint>
+                      <mat-hint *ngIf="emailFormControl.errors?.['email']">Email not valid</mat-hint>
+                      <mat-error class="pt-1"
+                      *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error class="pt-1" *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                    </mat-form-field>
+                    
+                  </div>
+                  <div class="w-100 my-4">
+                    <mat-label class="white_text ">Message *</mat-label>
+                    <mat-form-field class="form_mat w-100">
+                      <textarea rows="4" [formControl]="messageFormControl" style="padding: 0% !important;" matInput></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="row py-3 py-md-0">
+                    <div class="col-6 d-none d-md-block"></div>
+                    <div class="col-12 mx-auto col-md-6">
+                      <button class="green_btn white_text w-100 p-3" (click)="sendMail()">Submit</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-md-5 p-3 d-block d-md-none"></div>
+          <div class="col-12 col-lg-5 mx-auto  h-75" >
+            <div class="h-50 d-grid align-items-center px-1 ">
+              <div class="row h-75 px-0 px-md-4">
+               
+                <div class="col-2 col-md-1 pt-4 pt-md-0">
+                  <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font" class="mat-icon notranslate material-icons mat-icon-no-color">mail</mat-icon>
+                </div>
+                <div class="col-10 col-md-11 px-4  white_text pt-4 pt-md-0"> <a rel="ravana garden customer service" class="white_text" href="mailto:customerservice@ravanagarden.com">customerservice@ravanagarden.com</a></div>
+
+                <div class="col-2 col-md-1 pt-4 pt-md-0">
+                  <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font" class="mat-icon notranslate material-icons mat-icon-no-color">call</mat-icon>
+                </div>
+                <div class="col-10 col-md-11 px-4  white_text pt-4 pt-md-0"><a rel="ravana garden contact"   class="white_text" href="callto:+61421484290">+61421484290</a></div>
+
+                <div class="col-2 col-md-1 pt-4 pt-md-0">
+                  <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font" class="mat-icon notranslate material-icons mat-icon-no-color">location_on</mat-icon>
+                </div>
+                <div class="col-10 col-md-11 px-4  white_text  pt-4 pt-md-0">Ravana Garden<br>
+                  Velipatanvila Road, Nonagama 82100,<br>
+                  Sri Lanka.</div>
+              </div>
+            </div>
+            <div class="w-100 p-5 d-block d-md-none"></div>
+            <div class="h-50">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.6100856705393!2d80.99714612878982!3d6.101023567384762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae6bb4419870393%3A0xbc938a64c727f55d!2sRavana%20Garden!5e0!3m2!1sen!2slk!4v1675919285898!5m2!1sen!2slk"
+                class="w-100 h-100" style="border-radius: 20px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+
+  <!-- <div #page id="instagram_feed" [class]="'  h-100 footer_section position-relative bg-1 page section' ">
+    <div class="container-fluid">
+      <div class="row my-5 pt-5 text-center">
+        <h4 class="white_text" >Follow Us on Instagram @backtoorigins.lk</h4>
+  
+      </div>
+      <div class="row px-2" id="box1">
+        <div class="col-12 col-md-6 col-lg-3 m-auto p-0">
+          <div class="instagram_box">
+  
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/CnvyA0hPvaU/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14"
+              style="top: -54px;position: absolute; background:#000; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px;   padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+          </div>
+  
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 m-auto p-0">
+          <div class="instagram_box">
+  
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/CmDqIqiJmrd/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14"
+              style="top: -54px;position: absolute; background:#000; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px;   padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 m-auto p-0">
+          <div class="instagram_box">
+  
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/CmZC8favQtw/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14"
+              style="top: -54px;position: absolute; background:#000; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px;   padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 m-auto p-0">
+          <div class="instagram_box">
+  
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/CnqkRrLvPjJ/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14"
+              style="top: -54px;position: absolute; background:#000; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px;   padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+          </div>
+  
+        </div>
+      </div>
+      <div class="row footer_sec ">
+        <div class="col-10 mx-auto">
+          <div class="row py-4 my-5">
+            <div class="col-4 col-md-6">
+              <div class="row">
+                <div class="col-4 col-md-2"> <img class="w-100"
+                    src="assets/images/BTO-Verticle-Logo-light-green-back-darkbrown.webp" alt="" srcset=""></div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-12 col-md-2"><a href="#">
+                    <p class="white_text paragraph">Home</p>
+                  </a>
+                </div>
+                <div class="col-12 col-md-2"><a href="/about_us">
+                    <p class="white_text paragraph">About Us</p>
+                  </a>
+                </div>
+                <div class="col-12 col-md-2"><a href="/products">
+                    <p class="white_text paragraph">Products</p>
+                  </a>
+                </div>
+                <div class="col-12 col-md-2"><a href="/recipes">
+                    <p class="white_text paragraph">Recipes</p>
+                  </a>
+                </div>
+                <div class="col-12 col-md-2"><a href="/contact_us">
+                    <p class="white_text paragraph">Contact Us</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-6">
+              <div class="row">
+                <div class="col-12 col-md-5">
+                  <h3 class="white_text">Connect with us</h3>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-6 col-md-2">
+                  <div class="row">
+                    <div class="col-4"><img src="assets/images/facebook.webp" class="w-50" alt="" srcset=""></div>
+                    <div class="col-8"> <a href="https://www.facebook.com/backtoorgins?mibextid=ZbWKwL">
+                        <p class="white_text paragraph">Facebook</p>
+                      </a></div>
+                  </div>
+  
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="row">
+                    <div class="col-4"><img src="assets/images/insta.webp" class="w-100" alt="" srcset=""></div>
+                    <div class="col-8"> <a href="https://instagram.com/backtoorigins.lk?igshid=OGQ2MjdiOTE=">
+                        <p class="white_text paragraph">Instargram</p>
+                      </a></div>
+                  </div>
+  
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="row">
+                    <div class="col-4"><img src="assets/images/linkdin.webp" class="w-100" alt="" srcset=""></div>
+                    <div class="col-8"> <a href="https://www.linkedin.com/company/back-to-origins/">
+                        <p class="white_text paragraph">linkedin</p>
+                      </a></div>
+                  </div>
+                </div>
+  
+                <div class="col-6 col-md-2">
+                  <div class="row">
+                    <div class="col-4"><img src="assets/images/tiktok.webp" class="w-100" alt="" srcset=""></div>
+                    <div class="col-8"> <a href="#">
+                        <p class="white_text paragraph">TikTok</p>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+</div>

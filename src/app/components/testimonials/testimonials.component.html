@@ -1,0 +1,99 @@
+<div class="row h-100" style="display: contents;">
+  <div class="row d-block d-md-none ">
+    <div class="text_div px-4">
+      <h2 class="heading_1 white_text ">Testimonials</h2>
+      <hr class="w-50">
+    </div>
+  </div>
+  <div class=" col-12  pb-4 m-auto testimonial_message_top" style="height: 65%;">
+    <div
+      [ngClass]="(read_more)?'col-11 col-lg-8 col-xxxl-6 px-4 px-md-5 h-100  m-auto d-grid align-content-end ':'col-11 col-lg-5 col-xxxl-6 px-4 px-md-5 h-100  m-auto d-grid align-content-end '"
+      style="overflow-y: scroll;overflow-x: hidden;">
+      <ng-container *ngFor="let testimonial of testimonials">
+        <div *ngIf="testimonial.id==1" class="testimonial_message active ">
+
+          <ng-container *ngIf="testimonial.type==='text'">
+            <p id="testimonial_para_{{testimonial.id}}" class="white_text six_line" style="text-align: justify;">
+              {{testimonial.message}}</p>
+            <button id="read_more_testimonial_para_btn_{{testimonial.id}}" class="btn green_text1"
+              (click)="not_line_six(testimonial.id)">Read More</button>
+          </ng-container>
+          <ng-container *ngIf="testimonial.type==='video'">
+            <video class="video w-100  " id="video_{{testimonial.id}}" [loop]="true"
+              src="{{testimonial.message}}"></video>
+            <div class="w-100 h-100 position-absolute video_controler" id="video_controler_{{testimonial.id}}"
+              (click)="videoControl(testimonial.id)" style="background-color: rgba(0, 0, 0, 0.274);">
+              <mat-icon>play_circle</mat-icon>
+            </div>
+
+          </ng-container>
+
+        </div>
+        <div *ngIf="testimonial.id!=1" class="testimonial_message ">
+
+          <ng-container *ngIf="testimonial.type==='text'">
+            <p id="testimonial_para_{{testimonial.id}}" class="white_text six_line" style="text-align: justify;">
+              {{testimonial.message}}</p>
+            <button id="read_more_testimonial_para_btn_{{testimonial.id}}" class="btn green_text1"
+              (click)="not_line_six(testimonial.id)">Read More</button>
+          </ng-container>
+          <ng-container *ngIf="testimonial.type==='video'">
+            <video class="video w-100  " id="video_{{testimonial.id}}" [loop]="true"
+              src="{{testimonial.message}}"></video>
+            <div class="w-100 h-100 position-absolute video_controler " id="video_controler_{{testimonial.id}}"
+              (click)="videoControl(testimonial.id)"><mat-icon>play_circle</mat-icon></div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+
+    </div>
+
+  </div>
+  <div class="col-12   m-auto p-0 testimonial_bottom position-relative" style="height: 45%;">
+    <div class=" round_slider_parent_top h-100">
+
+      <div id="round_slider_parent" class="round_slider_parent">
+        <div *ngFor="let testimonial of testimonials">
+          <div *ngIf="testimonial.id==1" class="round_slider_item active">
+            <div class="item_data w-100" (click)="testimonial_slider_select(testimonial.id)">
+              <div class="position-relative">
+                <img *ngIf="testimonial.img" src={{testimonial.img}} alt="back to origins {{testimonial.name}}"
+                  class="w-100">
+                  <div  *ngIf="testimonial.type==='video'" class="video_type_div d-grid justify-content-center align-items-center">
+                    <mat-icon class="white_text">play_circle</mat-icon>
+                  </div>
+              </div>
+
+              <p class="white_text testimonials_text text-center mb-0 mt-1 pb-0  testimonials_name">
+                {{testimonial.name}}</p>
+              <p class="white_text testimonials_text small_text text-center mb-0 pb-0">
+                {{testimonial.resides}}
+              </p>
+            </div>
+          </div>
+          <div *ngIf="testimonial.id!=1" class="round_slider_item ">
+            <div class="item_data w-100" (click)="testimonial_slider_select(testimonial.id)">
+              <div class="position-relative">
+                <img *ngIf="testimonial.img" src={{testimonial.img}} alt="back to origins {{testimonial.name}}"
+                  class="w-100">
+                <div  *ngIf="testimonial.type==='video'" class="video_type_div d-grid justify-content-center align-items-center">
+                  <mat-icon class="white_text">play_circle</mat-icon>
+                </div>
+              </div>
+
+              <p class="white_text testimonials_text text-center mb-0 mt-1 pb-0  testimonials_name">
+                {{testimonial.name}}</p>
+              <p class="white_text testimonials_text small_text text-center mb-0 pb-0" s>
+                {{testimonial.resides}}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

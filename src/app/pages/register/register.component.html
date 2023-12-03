@@ -1,0 +1,177 @@
+<div class="cover_image">
+
+
+</div>
+<div class="container " style="height: 100vh">
+  <div class="row h-100 pt-5 align-items-center">
+    <div #step1 [ngClass]="(is_register)?'col-12 col-md-6 col-lg-5 col-xl-4 m-auto content text-center p-4 py-5': 'col-12 col-md-6 col-lg-5 col-xl-4 m-auto content text-center p-4 py-5 d-none'">
+      <h2 class="  heading ">Sign Up</h2>
+      <div class="form text-start">
+        <p class="white_text mb-1  sub_heading">Welcome to Back To Origins!</p>
+        <p class="white_text  para">Please create an account to purchase your preferred spices.</p>
+        <div class="sign_forms">
+          <div class="d-flex double">
+            <div class="col-2 pt-1">
+              <mat-form-field class="select_sec mt-0">
+
+                <mat-select [formControl]="selected">
+                  <mat-option value="mr">Mr</mat-option>
+                  <mat-option value="miss">Miss</mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
+
+              </mat-form-field>
+            </div>
+            <!-- First Name -->
+            <div class="col-10 mx-auto">
+              <mat-form-field class="example-full-width">
+                <mat-label class="mt-3">First Name</mat-label>
+                <input type="text" class="p-3" matInput [formControl]="firstNameFormControl"
+                  placeholder="Ex. pat@example.com">
+
+                <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                  First Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+
+          </div>
+          <div class="w-100 p-0 m-0">
+            <!-- Last Name -->
+            <mat-form-field class="example-full-width ">
+              <mat-label class="mt-3">Last Name</mat-label>
+              <input type="text" matInput [formControl]="lastNameFormControl" placeholder="Last Name">
+
+              <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                Last Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="d-flex double">
+            <div class="col-2 pt-1">
+              <!-- countryCode -->
+              <mat-form-field class="select_sec mt-0">
+
+                <mat-select [formControl]="countryCode">
+                  <mat-option value="+45">+45</mat-option>
+                  <mat-option value="+94">+95</mat-option>
+                </mat-select>
+
+
+              </mat-form-field>
+            </div>
+            <div class="col-10 mx-auto">
+              <!-- Mobile Number -->
+              <mat-form-field class="example-full-width">
+                <mat-label class="mt-3">Mobile Number</mat-label>
+                <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;"
+                  class="p-3" matInput [formControl]="mobileNumberFormControl" placeholder="XX-XXXXXXXX">
+                <mat-error
+                  *ngIf="mobileNumberFormControl.hasError('password') && !mobileNumberFormControl.hasError('required')">
+                  Mobile Number invalid
+                </mat-error>
+                <mat-error *ngIf="mobileNumberFormControl.hasError('required')">
+                  Mobile Number is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+
+          </div>
+          <div class="w-100 p-0 m-0">
+            <!-- Email -->
+            <mat-form-field class="example-full-width ">
+              <mat-label class="mt-3">Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. jhone@example.com">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Email invalid
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="w-100 p-0 m-0">
+            <!-- Birthday -->
+            <mat-form-field class="example-full-width">
+              <mat-label>Birthday(Optional)</mat-label>
+              <input matInput [matDatepicker]="picker" [formControl]="birthdayFormControl">
+              <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle matIconSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="w-100 p-0 m-0">
+            <!-- Password -->
+            <mat-form-field class="example-full-width ">
+              <mat-label class="mt-3">Password</mat-label>
+              <input type="password" matInput [formControl]="passwordFormControl" placeholder="password">
+
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="w-100 p-0 m-0">
+            <!-- Password -->
+            <mat-form-field class="example-full-width ">
+              <mat-label class="mt-3">Confirm Password</mat-label>
+              <input type="password" matInput [formControl]="confirm_passwordFormControl" placeholder="confirm password">
+
+              <mat-error *ngIf="confirm_passwordFormControl.hasError('required')">
+                password is <strong>required</strong>
+              </mat-error>
+              <mat-hint class="text-danger" *ngIf="errors.c_password">{{errors['c_password']}}</mat-hint>
+            </mat-form-field>
+          </div>
+
+
+          <div class="row  px-2">
+            <button class="btn green_btn p-3  sub_heading mt-3" (click)="register()">Sign Up</button>
+          </div>
+          <div class="row px-2 mt-4 ">
+            <p class="text-white d-flex justify-content-center">Already have an account ? <a  rel="back to origins login" href="/login"
+                rel="noopener noreferrer"><span class="green_text mx-2">Sign In</span></a></p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div #step2 [ngClass]="(is_register)?'col-12 col-md-6 col-lg-5 col-xl-4 m-auto content text-center p-4 py-5 d-none':'col-12 col-md-6 col-lg-5 col-xl-4 m-auto content text-center p-4 py-5'" >
+      <h2 class="  heading ">Verification</h2>
+      <div class="form text-start">
+        <p class="white_text mb-1  sub_heading">Let’s get started</p>
+        <p class="white_text  para">Enter the verification code we sent to your email.</p>
+        <div class="sign_forms">
+         
+          <div class="w-100 p-0 m-0">
+            <!-- Last Name -->
+            <mat-form-field class="example-full-width ">
+              <mat-label class="mt-3"  style="font-size: 18px;">Verification  Code</mat-label >
+              <input type="text" matInput [formControl]="verification_codeFormControl" placeholder="Code" style="font-size: 18px;">
+
+              <mat-error *ngIf="verification_codeFormControl.hasError('required')">
+                Verification  Code <strong>required</strong>
+              </mat-error>
+              <mat-hint class="text-danger" *ngIf="errors.activation_code">{{errors['activation_code']}}</mat-hint>
+            </mat-form-field>
+          </div>
+        
+          <div class="row  px-2">
+            <button class="btn green_btn p-3  sub_heading mt-3" (click)="verify()">Continue</button>
+          </div>
+          <div class="row px-2 mt-4 ">
+            <p class="text-white d-flex justify-content-center">Didn’t receive the code? <span class="green_text clickable mx-2" (click)="resend()">Resend</span></p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

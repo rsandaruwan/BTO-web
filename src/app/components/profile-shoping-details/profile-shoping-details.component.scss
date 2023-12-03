@@ -1,0 +1,26 @@
+.table_row{
+  background-color: #556a26;
+  border-radius: 40px 40px 0px 0px;
+  height: 56px;
+}
+.data_row{
+  background-color: #000000e6;
+  border-radius: 0 0 40px 40px;
+  min-height: 100px;
+  .search_select{
+    border: none !important;
+    background-color: rgb(73, 72, 72) !important;
+    color: white;
+  }
+}
+.profile_change_input{
+  width: 30px;
+  height: 30px;
+  bottom: 25%;
+  right: 10%;
+}
+.mat-select-value-text .mat-select-min-line {
+  width: 100%;
+  display: block;
+  text-align: start !important;
+}

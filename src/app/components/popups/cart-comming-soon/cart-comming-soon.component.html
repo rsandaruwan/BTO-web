@@ -1,0 +1,36 @@
+<div class="row p-4  m-0 dialog_backk position-relative">
+  <div class="col-12 text-center">
+    <h2 class="green_text">Online Shopping Coming Soon..</h2>
+    <h4 class="white_text">If you require any of our products please contact us,</h4>
+  </div>
+
+<div class="col-12 col-md-8 m-auto">
+  <form class=" w-100">
+
+    <div class="w-100 my-4">
+      <mat-label class="white_text ">Your Email *</mat-label>
+      <mat-form-field class="form_mat w-100">
+  
+        <input class="w-100" style="padding: 0% !important;" [formControl]="emailFormControl"  matInput type="email">
+        <mat-hint *ngIf="errors.email">{{errors['email']}}</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="w-100 my-4">
+      <mat-label class="white_text ">Message *</mat-label>
+      <mat-form-field class="form_mat w-100">
+        <textarea style="padding: 0% !important;"   [formControl]="messageFormControl"  rows="4" matInput></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-6"></div>
+      <div class="col-6">
+        <button class="green_btn white_text w-100 p-3" (click)="sendMail()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="exit_video" [mat-dialog-close]="">
+  <!-- <mat-icon>fullscreen_exit</mat-icon> -->
+  <mat-icon id="volume-change" >close</mat-icon>
+</div>
+</div>

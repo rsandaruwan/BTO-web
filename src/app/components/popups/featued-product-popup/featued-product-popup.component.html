@@ -1,0 +1,40 @@
+<div class="col-12 popup_parent">
+  <div class="popup">
+    <div class="row ">
+      <div class="col-12 ">
+        <h3 class="text-center white_text heading_1_thin">{{product.product_name}}</h3>
+      </div>
+      <div class="col-12">
+        <p class="white_text paragraph para_line_4">{{product.product_description}}</p>
+      </div>
+      <div class="col-12 d-flex">
+        <div class="col-6">
+          <div class=" col-10 m-auto">
+            <button
+              class=" mx-auto btn dark_green_btn mt-4 px-3 py-3">{{product.product_variants[0].product_price}}</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <a rel="back to origins product" href="{{product.product_variants[0].product_variant_seo_title}}" target="_blank" rel="noopener noreferrer">
+            <div class=" col-12 m-auto">
+              <button class=" mx-auto btn green_btn mt-4 px-4 py-3">View Product</button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <h2 class="white_text mt-4">Ingredients</h2>
+      <div class="col-12 d-flex over">
+
+        <div class="col-4 " *ngFor="let ingredient of product.product_ingredients">
+          <div class="row">
+            <div class=" col-10 m-auto">
+              <div class=" w-100"><img src="assets/images/product2.webp" alt="the back to origins product"
+                  class="col-11 d-block m-auto "></div>
+            </div>
+          </div>
+          <p class="white_text text-center mt-3">{{ingredient.ingredient_name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

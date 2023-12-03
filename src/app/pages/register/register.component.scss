@@ -1,0 +1,50 @@
+.cover_image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("/assets/images/cover.webp") no-repeat center;
+  background-size: cover;
+  filter: brightness(50%) blur(5px);
+}
+.content {
+  // height: 70%;
+  border-radius: 20px;
+  z-index: 0;
+  /* From https://css.glass */
+
+  // background: rgba(255, 255, 255, 0.09);
+  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
+}
+.heading {
+  font-size: 60px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: url("/assets/images/cover.webp")  no-repeat;
+  //background-size: cover;
+  background-position: 44% 35%;
+  color: #de466c;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sub_heading {
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+}
+.para {
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 24px !important;
+}
+.clickable{
+  cursor: pointer;
+}

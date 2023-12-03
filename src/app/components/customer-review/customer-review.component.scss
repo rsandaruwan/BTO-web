@@ -1,0 +1,24 @@
+.review_buble{
+  border-radius: 20px 20px 20px 0%;
+  background-color: #556A26;
+  padding: 2%;
+  .comment{
+    line-height: 1.5em;
+    max-height: 4.5em;
+    overflow: hidden;
+  }
+  
+}
+.pro_pic_col{
+  position: relative;
+  .pro_pic_div{
+    position: absolute;
+    bottom: 0;
+    padding-left: 6%;
+    padding-right: 6%;
+    img{
+      border-radius: 50%;
+      border: 1px solid lightgray;
+    }
+  }
+}

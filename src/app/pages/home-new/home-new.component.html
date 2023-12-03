@@ -1,0 +1,361 @@
+<div *ngIf="view_cover" class="cover_image d-flex">
+  <div class="col-10 col-lg-4  mt-3  mx-auto h-50 text-center d-grid align-content-center">
+
+    <p class="hero-para mt-5 mb-0">Introducing The World Of</p>
+    <h2 class="hero-head mt-3 mb-0">Ceylon’s Authentic,</h2>
+    <h2 class="hero-head mb-0"></h2>
+    <h2 class="hero-head mb-0" style="color: #58662F;">Natural Flavors</h2>
+    <h2 class="hero-head mb-0" style="color: #58662F;"></h2>
+  </div>
+</div>
+
+<div *ngIf="view_content" class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="Natural Flavors the back to origins" srcset="">
+  </div>
+
+</div>
+<div *ngIf="view_content" class="leaf_middle d-none d-md-block">
+  <div class="content d-flex flex-row-reverse">
+    <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="Natural Flavors the back to origins" srcset="">
+  </div>
+</div>
+
+<div [ngClass]="(home_view)?'d-none':'position-absolute top-0  w-100 h-100'">
+  <div class="container position-relative  h-100 p-0">
+    <app-side-nav-new #side_nav [items]="items" [ngClass]="(home_view)?'d-none':''"
+      [selected_section_text]="selected_section_text" (toview)="toview($event)"></app-side-nav-new>
+  </div>
+</div>
+<section class="p-0 " id="fullview" style="overflow-x: hidden;">
+
+  <div class="container-fluid back p-0  d-none d-md-block">
+
+
+  </div>
+
+
+  <!-- src="https://res.cloudinary.com/ambrum/video/upload/v1688979172/bto/About_back_to_origin_concept_lfgehy.webm" -->
+  <div #page id="home" class="page home pb-0 pb-md-auto active position-relative" style="height: 100vh !important;">
+    <video autoplay muted loop id="homeVideo" disablepictureinpicture controlslist="nodownload noplaybackrate"
+      class="homeVideo ">
+      <source
+      src="/assets/videos/About_back_to_origin_concept_lfgehy.webm"
+       
+        type="video/mp4">
+    </video>
+    <div class="sound d-none d-md-block" (click)="home_vol()">
+      <!-- <mat-icon>volume_up</mat-icon> -->
+      <mat-icon id="volume-change">volume_off</mat-icon>
+    </div>
+    <div class="hero_back ">
+
+    </div>
+    <div class="container hero_content h-100 ">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 col-md-5 h-50 h-md-100  mx-auto order-1 order-md-0 ">
+          <div class="hero_text_top d-block d-md-none">
+
+          </div>
+          <div class="hero_text_context mobile_black px-4 px-md-0 ">
+            <h4 class="hero_sub ">Introducing the world of</h4>
+            <h2 class="hero_heading mb-0 white_text">Ceylon’s Authentic,
+              Natural Flavors</h2>
+            <hr class="w-50 mt-0">
+            <p class="paragraph d-none  white_text mt-0 mt-md-5">
+              Lorem ipsum dolor sit amet consectetur. Eget velit quis dui arcu fames. Justo convallis eu molestie
+              scelerisque. Convallis neque dictumst erat ultrices. Ornare lacus pharetra purus ac sit turpis. Varius
+              suspendisse ac.
+            </p>
+
+
+            <a rel="back to origins products" href="/products">
+              <button class=" mx-auto btn green_btn mt-4 px-4 px-md-5 py-3 py-md-2 top_btn_text">Shop Now</button>
+            </a>
+
+          </div>
+          <div class="hero_text_bottom d-block d-md-none"></div>
+          <!-- <div class="w-100 row mt-4 " style="padding-right: 20%;">
+           
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[0].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[1].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[2].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[3].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[4].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+             
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+             
+            </div>
+          
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[5].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[6].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-2 p-3 mx-auto ">
+              <img  src={{icons[7].icon_image}} class="w-100 ratio ratio-1x1" alt="" srcset="">
+            </div>
+            <div  class="col-4 p-3 mx-auto ">
+             
+            </div>
+          </div> -->
+        </div>
+        <div class="col-12 col-md-7  order-0 mx-auto d-flex h-50 h-md-100 order-md-1">
+          <!-- <video autoplay muted loop  class="w-100 homeVideo">
+            <source   src="https://res.cloudinary.com/ambrum/video/upload/v1688648874/Frame_56_2_zietcx.mp4" type="video/mp4">
+          </video> -->
+          <img src="/assets/images/hero/bto_hero_{{hero_img}}.webp" class="w-75 m-auto hero_animation"
+            style="padding-top: 16%;" alt="Natural Flavors the back to origins" srcset="">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div #page id="our_credentials" class="page our_credentials ">
+    <div class="container h-100 d-grid justify-content-center align-items-center">
+      <div class="row d-block d-md-none pt-3 mt-5">
+        <div class="text_div px-4">
+          <h2 class="heading_1 white_text ">Credentials</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+      <app-credentials [is_active]="credentials_active"></app-credentials>
+    </div>
+
+  </div>
+  <div #page id="testimonials" class="page">
+    <div class="container sec  pt-5 p-md-0 pt-md-0   position-relative   section">
+      <div class="row h-100" style="display: contents;">
+        <div class="row d-block d-md-none ">
+          <div class="text_div px-4">
+            <h2 class="heading_1 white_text ">Testimonials</h2>
+            <hr class="w-50">
+          </div>
+        </div>
+        <div class=" col-12  pb-4 m-auto testimonial_message_top" style="height: 65%;">
+          <div
+            [ngClass]="(read_more)?'col-11 col-lg-8 col-xxxl-6 px-4 px-md-5 h-100  m-auto d-grid align-content-end ':'col-11 col-lg-5 col-xxxl-6 px-4 px-md-5 h-100  m-auto d-grid align-content-end '"
+            style="overflow-y: scroll;overflow-x: hidden;">
+            <ng-container *ngFor="let testimonial of testimonials">
+              <div *ngIf="testimonial.id==1" class="testimonial_message active ">
+
+                <ng-container *ngIf="testimonial.type==='text'">
+                  <p id="testimonial_para_{{testimonial.id}}" class="white_text six_line" style="text-align: justify;">
+                    {{testimonial.message}}</p>
+                  <button *ngIf="stringCharacters(testimonial.message)" id="read_more_testimonial_para_btn_{{testimonial.id}}" class="btn green_text1"
+                    (click)="not_line_six(testimonial.id)">Read More</button>
+                </ng-container>
+                <ng-container *ngIf="testimonial.type==='video'">
+                  <video class="video w-100  " disablepictureinpicture controlslist="nodownload noplaybackrate"
+                    id="video_{{testimonial.id}}" [loop]="true" src="{{testimonial.message}}"></video>
+                  <div class="w-100 h-100 position-absolute video_controler" id="video_controler_{{testimonial.id}}"
+                    (click)="videoControl(testimonial.id)" style="background-color: rgba(0, 0, 0, 0.274);">
+                    <mat-icon>play_circle</mat-icon>
+                  </div>
+
+                </ng-container>
+
+              </div>
+              <div *ngIf="testimonial.id!=1" class="testimonial_message ">
+
+                <ng-container *ngIf="testimonial.type==='text'">
+                  <p id="testimonial_para_{{testimonial.id}}" class="white_text six_line" style="text-align: justify;">
+                    {{testimonial.message}}</p>
+                  <button *ngIf="stringCharacters(testimonial.message)" id="read_more_testimonial_para_btn_{{testimonial.id}}" class="btn green_text1"
+                    (click)="not_line_six(testimonial.id)">Read More</button>
+                </ng-container>
+                <ng-container *ngIf="testimonial.type==='video'">
+                  <video class="video w-100  " disablepictureinpicture controlslist="nodownload noplaybackrate"
+                    id="video_{{testimonial.id}}" [loop]="true" src="{{testimonial.message}}"></video>
+                  <div class="w-100 h-100 position-absolute video_controler " id="video_controler_{{testimonial.id}}"
+                    (click)="videoControl(testimonial.id)"><mat-icon>play_circle</mat-icon></div>
+                </ng-container>
+              </div>
+            </ng-container>
+
+
+          </div>
+
+        </div>
+        <div class="col-12   m-auto p-0 testimonial_bottom position-relative" style="">
+          <div class=" round_slider_parent_top ">
+
+            <div id="round_slider_parent" class="round_slider_parent">
+              <div *ngFor="let testimonial of testimonials">
+                <div *ngIf="testimonial.id==1" class="round_slider_item active">
+                  <div class="item_data w-100" (click)="testimonial_slider_select(testimonial.id)">
+                    <div class="position-relative">
+                      <img *ngIf="testimonial.img" src={{testimonial.img}} alt="back to origins {{testimonial.name}}"
+                        class="w-100">
+                      <div *ngIf="testimonial.type==='video'"
+                        class="video_type_div d-grid justify-content-center align-items-center">
+                        <mat-icon class="white_text">play_circle</mat-icon>
+                      </div>
+                    </div>
+
+                    <p class="white_text testimonials_text text-center mb-0 mt-1 pb-0  testimonials_name">
+                      {{testimonial.name}}</p>
+                    <p class="white_text testimonials_text small_text text-center mb-0 pb-0">
+                      {{testimonial.resides}}
+                    </p>
+                  </div>
+                </div>
+                <div *ngIf="testimonial.id!=1" class="round_slider_item ">
+                  <div class="item_data w-100" (click)="testimonial_slider_select(testimonial.id)">
+                    <div class="position-relative">
+                      <img *ngIf="testimonial.img" src={{testimonial.img}} alt="back to origins {{testimonial.name}}"
+                        class="w-100">
+                      <div *ngIf="testimonial.type==='video'"
+                        class="video_type_div d-grid justify-content-center align-items-center">
+                        <mat-icon class="white_text">play_circle</mat-icon>
+                      </div>
+                    </div>
+
+                    <p class="white_text testimonials_text text-center mb-0 mt-1 pb-0  testimonials_name">
+                      {{testimonial.name}}</p>
+                    <p class="white_text testimonials_text small_text text-center mb-0 pb-0" s>
+                      {{testimonial.resides}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <div #page id="our_concept" class="page">
+    <div class="container sec pt-5 pt-md-0 p-md-0">
+      <div class="row h-100 mt-5 d-grid align-items-center">
+        <div [class]="' our_process h-100  position-relative bg-1  section' ">
+          <div class="w-100 d-grid align-items-center h-100  our_concept  page-content">
+            <div class="col-md-10 col-lg-10 mx-auto h-auto pt-4">
+              <div class="row ">
+                <div class="row d-block d-md-none mb-5">
+                  <div class="text_div px-4">
+                    <h2 class="heading_1 white_text ">Our concept</h2>
+                    <hr class="w-50">
+                  </div>
+                </div>
+                <div class="col-11 mx-auto">
+                  <div class="top " style="min-height: 45vh;">
+                    <div class="row h-100 our_concept_content">
+                      <div class="col-12 m-auto col-lg-6 order-2 order-md-1 h-100 py-4 px-md-5">
+                        <h2 class="heading_1 m-3 white_text my-0 col-11 col-md-12">THE TALE OF BACK TO ORIGINS </h2>
+                        <h2 class="heading_2 green_text m-3 my-0">I survive because we survive</h2>
+                        <p class="white_text px-3 mt-2 six_line" style="text-align: justify;">
+                          Due to the outbreak of Covid-19 our sustainable luxury boutique hotel, Ravana Garden
+                          has
+                          to close
+                          its operations in March 2020. Keeping in line with our sustainable values & going by
+                          principle of “I
+                          SURVIVE, BECAUSE WE SURVIVE, we opted to keep our staff employed and continue to pay
+                          their
+                          salaries,
+                          otherwise there would have been no way for them to feed their families. As the process
+                          of
+                          recovery
+                          of the tourism industry prolongs, we decide to look at alternative steps to survive,
+                          “TOGETHER”.
+                          <span *ngIf="concept_read_more">
+                          "Back To Origins" online platform was born as a survival solution for Ravana Garden.
+                          Since
+                          human
+                          movements are restricted as a result of the epidemic, we thought it would be a great
+                          idea
+                          for us to
+                          take the truly Sri Lankan sustainable experience of Ravana Garden, to the door of
+                          people
+                          who would
+                          appreciate and value. Various Ravana Garden products ranging from authentic/
+                          traditional
+                          spices, RTE
+                          food, natural seasoning blends etc.. will be sold under the brand name "Back To
+                          Origin."
+                        </span>
+                        </p>
+                       <div class="row justify-content-end">
+                        <button  class="btn green_text1 col-4 align-self-end "
+                        (click)="ConceptReadMore()">{{ConceptReadMoreText}}</button>
+                       </div>
+                      </div>
+                      <div
+                        class="col-12  h-auto col-lg-6 order-1 order-md-2 position-relative  d-md-block cruve_side p-0">
+                        <!-- <iframe class=" w-100 h-100" src="https://www.youtube.com/embed/q5_GsTNSWG8"
+                          title="Back To Origins: A Sneak Peek" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen></iframe> -->
+                          <!-- https://res.cloudinary.com/ambrum/video/upload/v1688638235/bto/Back_To_Origins__A_Sneak_Peek_x3zyin.mp4" -->
+                        <video class=" d-none d-md-block h-100 our_concept_video  position-absolute" disablepictureinpicture
+                          controlslist="nodownload noplaybackrate" style="right:-50%" muted autoPlay [loop]="true"
+                          src="/assets/videos/Back_To_Origins__A_Sneak_Peek_x3zyin.webm"></video>
+                        <video class=" d-block d-md-none w-100 our_concept_video1 " disablepictureinpicture
+                          controlslist="nodownload noplaybackrate" style="right:-50%" muted autoPlay [loop]="true"
+                          src="/assets/videos/Back_To_Origins__A_Sneak_Peek_x3zyin.webm"></video>
+                        <div class="expan_video d-none d-md-block" (click)="expan_video()">
+                          <!-- <mat-icon>fullscreen_exit</mat-icon> -->
+                          <mat-icon class="material-icons-outlined" id="volume-change">fullscreen</mat-icon>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #page id="footer" class="page ">
+    <div class="container-fluid h-100 d-grid align-content-end  p-0">
+      <div class="row my-5 text-center">
+        <!-- <h4 class="white_text" >Follow Us on Instagram @backtoorigins.lk</h4> -->
+
+      </div>
+      <!-- <div class="row px-0" id="box1" *ngIf="instagram_data">
+        <ng-container *ngFor="let data of instagram_data.media.data;let i=index" class=" instagram_box">
+          <div *ngIf="data.media_type=='IMAGE' && i<5" class="  col m-auto p-0">
+            <a href={{data.permalink}}>
+              <img src={{data.media_url}} alt="" class="instagram_box_img w-100 h-100" srcset="">
+            </a>
+          </div>
+        </ng-container>
+
+
+      </div> -->
+      <app-footer-sec></app-footer-sec>
+    </div>
+  </div>
+
+
+
+
+</section>
+
+<div class="">
+  <!-- *ngIf="current_section!=items.length" -->
+  <div id='{{getId()}}' #scroll_btn class="scroll_btn  scroll_btn_down d-none d-md-block" (click)="toNext()"> </div>
+</div>

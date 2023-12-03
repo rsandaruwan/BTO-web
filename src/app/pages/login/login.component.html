@@ -1,0 +1,59 @@
+<div class="cover_image">
+
+
+</div>
+<div class="container " style="height: 100vh">
+  <div class="row h-100 pt-5 align-items-center">
+    <div class="col-12 col-md-6 col-lg-5 col-xl-4 m-auto content text-center p-4 py-5">
+      <h2 class="  heading ">Sign in</h2>
+      <div class="form text-start">
+        <p class="white_text mb-1  sub_heading">Welcome to Back To Origins!</p>
+        <p class="white_text  para">Please sign-in to your account to purchase your preferred spices.</p>
+        <div class="sign_forms">
+          <mat-form-field class="example-full-width">
+            <mat-label class="mt-3">Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+             <mat-hint class="text-danger" *ngIf="errors.username">{{errors['username']}}</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label class="mt-3">Password</mat-label>
+            <input type="password" matInput [formControl]="passwordFormControl" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+              Password invalid
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-hint class="text-danger" *ngIf="errors.password">{{errors['password']}}</mat-hint>
+          </mat-form-field>
+          <div class="row px-2 my-2">
+            <div class="col-6 text-start">
+              <mat-checkbox class="example-margin text-white " [(ngModel)]="remember">Remember Me</mat-checkbox>
+            </div>
+            <div class="col-6 text-end">
+              <a rel="back to origins forgot password" href="">
+                <p class="text-white">Forgot Password ?</p>
+              </a>
+            </div>
+          </div>
+          <div class="row  px-2">
+            <button class="btn green_btn p-3  sub_heading mt-3" (click)="login()">Sign in</button>
+          </div>
+          <div class="row px-2 mt-4 ">
+            <p class="text-white d-flex justify-content-center">Don’t have an account? <a rel="back to origins register" href="/register"
+                rel="noopener noreferrer"><span class="green_text mx-2">Sign Up</span></a></p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

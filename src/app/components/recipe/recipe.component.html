@@ -1,0 +1,32 @@
+<div class="recipe_card white_border p-0">
+  <div class="row p-0">
+    <div class="row m-auto">
+      <!-- <div class="product_image_wrapper w-100 p-0 m-auto  m-auto" style="background: url('../../../assets/images/image4.png') no-repeat; ">
+        <img src="{recipe.recipe_main_image}" srcset="">
+       
+      </div> -->
+      <div class="product_image_wrapper w-100 p-0 m-auto  m-auto"
+        style="background: url({{recipe.recipe_main_image}}) no-repeat; ">
+        <!-- <img src="{{recipe.recipe_main_image}}" alt="the back to origins" srcset=""> -->
+
+      </div>
+    </div>
+    <div class="col-11 mt-3 m-auto" style="min-height: 85px;">
+      <h2 class="recipe_heading white_text mt-0 para_line_2">{{recipe.recipe_name}} </h2>
+    </div>
+
+    <div class="col-11 m-auto recipe_data">
+      <div class="row">
+        <div *ngFor="let category of recipe.recipe_category_details" class="col-4 px-2">
+          <div class="white_border tag text-center white_text">
+            {{category.recipe_category_name}}
+          </div>
+        </div>
+      </div>
+      <p class="paragraph mt-3 white_text para_line_3 ">{{recipe.recipe_summary}}</p>
+      <p class="green_text1 to_bottom text-end paragraph1 btn " (click)="to_recipe(recipe.recipe_id)"> Read More --->
+      </p>
+    </div>
+  </div>
+
+</div>

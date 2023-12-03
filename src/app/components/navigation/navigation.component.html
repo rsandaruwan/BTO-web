@@ -1,0 +1,149 @@
+<nav #nav class="navbar navbar-expand-lg pb-0 pb-md-3 navbar-dark sticky-top p-0">
+  <div class="container top_nav">
+    <div class="w-100 d-flex h-100 d-block d-lg-none">
+      <div class="col-1 py-3 px-1">
+        <button name="icon" id="icon" class="navbar-toggler p-0 w-100" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation" (click)="menu_click()">
+          <img src="assets/images/icons/menu_icon.svg" alt="the back to origins menu" class="w-100" srcset="">
+        </button>
+      </div>
+
+      <div class="col-2 px-3 md_logo_parent ">
+        <img class="md_logo" src="assets/images/BTO-Verticle-Logo-light-green-back-darkbrown.webp" alt="the back to origins menu" srcset="">
+      </div>
+      <div class="col-6"></div>
+
+
+      <!-- <div class="col-1 py-3 ">
+        <button class="btn"><mat-icon>search</mat-icon></button>
+      </div>
+      <div class="col-1 py-3 ">
+        <button class="btn"><mat-icon>favorite_outline</mat-icon></button>
+      </div> -->
+      <div class="col-1 py-3 ">
+        <div class="" (click)="navigate('cart')">
+          <button  id="cart_m_btn" name="cart_m_btn" class="btn position-relative">
+            <mat-icon>shopping_cart_outline</mat-icon>
+            <div *ngIf="cart_qty" class=" cart_bage position-absolute">{{cart_qty}}</div>
+          </button>
+        </div>
+      </div>
+      <!-- <div class="col-1 py-3 ">
+        <div *ngIf="user"  >
+          <button id="profile_m_btn" name="profile_m_btn" class="btn"><mat-icon>account_circle_outline</mat-icon></button>
+        </div>
+        <div *ngIf="!user"  class="" (click)="navigate('profile')">
+          <button id="profile_m_btn1" name="profile_m_btn1" class="btn"><mat-icon>account_circle_outline</mat-icon></button>
+        </div>
+        <ul *ngIf="user" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><div class="dropdown-item  text-white-color" (click)="navigate('profile')">{{user.first_name+"
+              "+user.last_name}}</div></li>
+          <li><div class="dropdown-item  text-white-color" (click)="signout()">Sign Out</div></li>
+        </ul>
+        
+      </div> -->
+    </div>
+
+    <div class="collapse navbar-collapse py-5 py-md-4 pb-md-1" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 w-100 px-5 justify-content-center">
+        <li class="nav-item text-center m-auto mx-5 w-75 h-100 p-0 d-none d-lg-block">
+          <a rel="backtoorigins" class="nav-link m-auto h-100" href="/"  aria-label="TheBackToOrigin ">
+            <img class="w-100" src="assets/images/BTO-Verticle-Logo-light-green-back-darkbrown.webp" alt="the back to origins" srcset="">
+          </a>
+        </li>
+        <li class="nav-item  m-auto w-100  h-100">
+        
+        </li>
+        <li class="nav-item  m-auto w-100  h-100">
+        
+        </li>
+        <li class="nav-item  m-auto w-100  h-100">
+          <div class="nav-link m-auto h-100" (click)="navigate('')"  aria-label="TheBackToOrigin ">Home</div>
+        </li>
+        <li class="nav-item m-auto w-100 h-100">
+          <div class="nav-link m-auto h-100" (click)="navigate('about-us')" aria-label="TheBackToOrigin About Us">About Us</div>
+        </li>
+        <li class="nav-item m-auto w-100 h-100">
+          <div class="nav-link m-auto h-100" (click)="navigate('our_credentials')" aria-label="TheBackToOrigin ">Credentials</div>
+        </li>
+      
+        <li class=" d-none d-md-block nav-item m-auto w-100 products h-100">
+          <div class="nav-link m-auto h-100" (click)="navigate('products')" aria-label="TheBackToOrigin Products">Products</div>
+          <ul class="dropdown-menu nav_ul" aria-labelledby="navbarDropdown">
+            <li *ngFor="let category of subcategory"><div class="dropdown-item  white_text"
+                (click)="navigate1(category.sub_category_name)">{{category.sub_category_name}}</div></li>
+          </ul>
+        </li>
+        <li class=" d-nblock d-md-none nav-item m-auto w-100  dropdown products1  h-100">
+          <a class="nav-link m-auto h-100  dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false"  aria-label="TheBackToOrigin Products">Products</a>
+          <ul class="dropdown-menu nav_ul" aria-labelledby="navbarDropdown">
+            <li><div class="dropdown-item  text-white-color" (click)="navigate('products')"> Products</div></li>
+            <li *ngFor="let category of subcategory"><div class="dropdown-item  white_text"
+                (click)="navigate1(category.sub_category_name)">{{category.sub_category_name}}</div></li>
+          </ul>
+        </li>
+
+        <li class="nav-item m-auto w-100  h-100 ">
+          <div class="nav-link m-auto h-100" (click)="navigate('recipes')" aria-label="TheBackToOrigin Recipes">Recipes</div>
+        </li>
+        <li class="nav-item m-auto w-100   h-100 ">
+          <div class="nav-link m-auto h-100" (click)="navigate('contact-us')" aria-label="TheBackToOrigin Contact Us">Contact Us</div>
+        </li>
+        <li class="nav-item d-none d-lg-block m-auto w-100 h-100 ">
+          <div class="d-flex">
+            <!-- <div class="col"><button class="btn"><mat-icon>search</mat-icon></button></div> -->
+            <!-- <div class="col"><button class="btn"><mat-icon>favorite_outline</mat-icon></button></div> -->
+            <div class=" overflow-hidden">
+             
+                <button #cart_btn  (click)="navigate('cart')" id="cart_btn" name="cart_btn" aria-label="cart_btn" class="btn position-relative">
+                  <mat-icon>shopping_cart_outline</mat-icon>
+                  <div *ngIf="cart_qty" class=" cart_bage position-absolute">{{cart_qty}}</div>
+                </button>
+             
+            </div>
+           
+
+            <!-- <div class="col mx-2 profile">
+              <div class="" (click)="navigate('profile')">
+                <button #profile_btn id="profile_btn" aria-label="profile_btn" name="profile_btn" class="btn"><mat-icon>account_circle_outline</mat-icon></button>
+              </div>
+              <ul *ngIf="user" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><div class="dropdown-item  text-white-color" (click)="navigate('profile')">{{user.first_name+"
+                    "+user.last_name}}</div></li>
+                <li><div class="dropdown-item  text-white-color" (click)="signout()">Sign Out</div>
+              </ul>
+            </div> -->
+
+
+          </div>
+
+        </li>
+
+        <li>
+          <mat-form-field >
+            <mat-label>Select Region</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="regions">
+              <mat-option *ngFor="let region of regions" [value]="region.flag">
+                <img src={{region.flag}} alt="" style="width: 35px ; height: 35px; border-radius: 100px;" class="mx-2" >
+                {{region.name}}
+              </mat-option>
+             
+            </mat-select>
+          </mat-form-field>
+        </li>
+        <!-- <li class="nav-item text-center m-auto w-100 h-100 dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" [routerLink]="['/contact_us','contact']">Contact Us</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/contact_us','request']">Request a Booking</a></li>
+          </ul>
+        </li> -->
+      </ul>
+
+    </div>
+  </div>
+</nav>

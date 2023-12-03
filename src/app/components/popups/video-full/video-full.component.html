@@ -1,0 +1,9 @@
+<div class="position-relative w-100 m-0" style="background-color: black;" >
+  <video class="w-100 h-100 our_concept_video   "  muted autoPlay disablepictureinpicture  controlslist="nodownload noplaybackrate" [controls]="true"
+  [loop]="false"
+  src={{data}}></video>
+  <div class="exit_video" [mat-dialog-close]="data">
+    <!-- <mat-icon>fullscreen_exit</mat-icon> -->
+    <mat-icon id="volume-change" >close</mat-icon>
+  </div>
+</div>

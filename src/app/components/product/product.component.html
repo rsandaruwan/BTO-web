@@ -1,0 +1,62 @@
+<div *ngIf="product" class="product col-12 position-relative" style=" min-height: 312px;">
+  <a rel="back to origins products" href="product/{{selected_variant_seo_title}}" target="" rel="noopener noreferrer">
+    <div class="img-div w-100 m-auto">
+      <img src="{{product.product_images[0].image_path}}" alt=" the back to origins {{selected_variant_seo_title}}" class="w-100" srcset="">
+    </div>
+    <div class="w-100 mt-2">
+      <p class="w-100 paragraph white_text text-center">{{product.product_variant_name}}</p>
+    </div>
+  </a>
+
+  <!-- <div class="mt-2">
+    <mat-select id="select_{{product.product_id}}" [(value)]="selected_variant_id" (selectionChange)="select_variant()">
+      <mat-option *ngFor="let product_variant of product.product_variants" [value]="product_variant.product_variant_id">
+        <div class="w-100 d-flex overflow-hidden">
+          <p class=" w-75 text-start"  style="overflow: hidden;">{{product_variant.product_variant_name}}</p>
+           <p class="w-25 text-end" style="overflow: hidden;">{{product_variant.product_price}}</p>
+        </div>
+      </mat-option>
+    </mat-select>
+  </div> -->
+  <div class="d-flex   w-100 ">
+    <div class="col-5 col-md-7">
+      <h2 class="white_text m-0">{{currency}}{{product.product_price.toFixed(2)}}</h2>
+    </div>
+    <div class="col-7 col-md-5 px-2 green_border1">
+      <div class="w-100 d-flex h-100 p-0">
+
+        <div class="col-3 h-100  d-grid justify-content-center align-items-center   text-center p-0" (click)="min()">
+          <mat-icon role="img" aria-hidden="true" data-mat-icon-type="font"
+            class="mat-icon notranslate material-icons mat-icon-no-color">do_not_disturb_on</mat-icon>
+        </div>
+
+
+        <div class="col-5 h-100 d-grid justify-content-center align-items-center text-center p-0">
+          <p class="green_text m-0 p-0">{{count}}</p>
+        </div>
+        <div class="col-3 h-100  d-grid justify-content-center align-items-center p-0 text-center pulus-icon"
+          (click)="add()">
+          <mat-icon role="img" aria-hidden="true" dta-mat-icon-type="font"
+            class="mat-icon notranslate material-icons mat-icon-no-color"
+            data-mat-icon-type="font">add_circle</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex mt-3  w-100 bottom-0">
+
+
+    <div class="col-12   my-auto">
+      <button
+        [ngClass]="(!btn_click_status)?'btn cart_btn position-relative d-flex justify-content-center align-items-center w-100 p-3 py-2 ':'btn cart_btn1  d-flex justify-content-center align-items-center w-100 px-3 py-2'"
+        (click)="addtocart()">
+        <ng-container >
+          <mat-icon [ngClass]="(!btn_click_status)?'':'invisible'" class="mx-1">shopping_cart_outline</mat-icon>
+          <span  [ngClass]="(!btn_click_status)?'':'invisible'" >Add to Cart</span>
+        </ng-container>
+        <ng-lottie *ngIf="btn_click_status" class="m-auto position-absolute" [options]="options"></ng-lottie>
+      </button>
+    </div>
+  </div>
+
+</div>

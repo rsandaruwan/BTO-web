@@ -1,0 +1,87 @@
+
+
+<div  class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+
+</div>
+<div  class="leaf_middle d-none d-md-block">
+  <div class="content d-flex flex-row-reverse">
+    <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+</div>
+
+<div class='position-absolute top-0  w-100 h-100'>
+  <div class="container position-relative  h-100 p-0">
+    <app-side-nav-new #side_nav [items]="items" 
+      [selected_section_text]="selected_section_text" (toview)="toview($event)"></app-side-nav-new>
+  </div>
+</div>
+<section class="p-0 " id="fullview" style="overflow-x: hidden;">
+
+  <div class="container-fluid back p-0  d-none d-md-block">
+
+
+  </div>
+
+
+  <!-- src="https://res.cloudinary.com/ambrum/video/upload/v1688979172/bto/About_back_to_origin_concept_lfgehy.webm" -->
+  <div #page id="home" class="page  pb-0 pb-md-auto active position-relative" >
+   
+   
+    <div class="container  h-100 ">
+      <div class="d-grid align-items-center w-100 h-100">
+        <div class="col-8 m-auto">
+          <app-profile-information></app-profile-information>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div #page id="our_credentials " class="page    pb-0 pb-md-auto position-relative">
+    <div class="container  h-100 ">
+      <div class="d-grid align-items-center w-100 h-100">
+        <div class="col-8 m-auto">
+          <app-profile-shoping-details></app-profile-shoping-details>
+        </div>
+        
+      </div>
+    </div>
+    
+
+  </div>
+ 
+  <div #page id="testimonials" class="page">
+    <div class="container  h-100 ">
+      <div class="d-grid align-items-center w-100 h-100">
+        <div class="col-8 m-auto">
+          <app-profile-change-password></app-profile-change-password>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div #page id="our_concept" class="page">
+    <div class="container sec pt-5 pt-md-0 p-md-0">
+     
+    </div>
+  </div>
+  <div #page id="footer" class="page ">
+    <div class="container-fluid h-100 d-grid align-content-end  p-0">
+     
+    
+      <app-footer-sec></app-footer-sec>
+    </div>
+  </div>
+
+
+
+
+</section>
+
+<div class="">
+  <!-- *ngIf="current_section!=items.length" -->
+  <div id='{{getId()}}' #scroll_btn class="scroll_btn  scroll_btn_down d-none d-md-block" (click)="toNext()"> </div>
+</div>

@@ -1,0 +1,47 @@
+.table_row{
+  background-color: #556a26;
+  border-radius: 40px 40px 0px 0px;
+  height: 56px;
+}
+.data_row{
+  background-color: #000000e6;
+  border-radius: 0 0 40px 40px;
+  min-height: 100px;
+  .search_select{
+    border: none !important;
+  }
+}
+.mat-form-field{
+  input{
+    background: #333333 !important;
+    color: white;
+    padding: 3%;
+   padding-right: 1%;
+   padding-left: 1%;
+  }
+  textarea{
+    background: #333333 !important;
+    color: white;
+    padding: 3%;
+   
+  }
+  mat-select{
+    background: #333333 !important;
+    color: white;
+    padding: 3%;
+  }
+
+}
+.mat-form-field-label-wrapper{
+  position: relative !important;
+}
+.topic{
+  font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.gray_text{
+  color: rgb(141, 140, 140) !important;
+}

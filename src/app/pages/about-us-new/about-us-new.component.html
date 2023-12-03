@@ -1,0 +1,149 @@
+<div class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt=" the back to origins about us" srcset="">
+  </div>
+
+</div>
+<div class="leaf_middle d-none d-md-block">
+  <div class="content d-flex flex-row-reverse">
+    <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+</div>
+<div [ngClass]="(home_view)?'d-none':'position-absolute top-0  w-100 h-100'">
+  <div class="container position-relative  h-100 p-0">
+    <app-side-nav-new #side_nav [items]="items" [selected_section_text]="selected_section_text"
+      (toview)="toview($event)"></app-side-nav-new>
+  </div>
+</div>
+
+<section class="p-0" id="fullview">
+
+  <div class="container-fluid back p-0">
+  </div>
+
+  <div #page id="about_us" class=" page active">
+    <div class="container pt-5 pt-md-0 p-0 h-100 ">
+      <div class="row h-100 mt-5 d-grid align-items-center">
+        <div class="row d-block d-md-none mt-5 ">
+          <div class="text_div px-4">
+            <h2 class="heading_1 white_text ">About Us</h2>
+            <hr class="w-50">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-8 mx-auto back_about p-0 p-md-5 pt-5 position-relative" style="overflow: visible;margin-top: 10%;">
+          <div class="hero_text_top d-block d-md-none"></div>
+          <img src="assets/images/about_us/about.webp" class="position-absolute w-75 about_image"  alt="the back to origins Ravana Garden" srcset="">
+          <p class=" m-0 pb-3  px-5 p-md-0 p-md-2 white_text paragraph">Ravana Garden's "Back to Origins" collection
+            features
+            authentic/sustainably produced Ceylon spices, spice & herbal blends, and ready-to-eat products,
+            allowing
+            you to enjoy the aromatic flavors and healthier options of different cuisines in the comfort of your
+            own
+            home.</p>
+
+
+          <p class="m-0  pb-3  px-5 p-md-0 p-md-2  white_text paragraph">Our products are made with natural ingredients
+            and do not
+            contain
+            any artificial flavor enhancers or colors.
+            To demonstrate our genuine commitment to preserving the earth, we've embraced sustainable products,
+            and
+            we've inspired others to join us on our sustainable journey, which we believe is the most effective
+            way
+            to protect our planet.</p>
+
+
+          <p class="m-0  pb-3  px-5 p-md-0 p-md-2 white_text paragraph"> Despite the pandemic-related challenge, Ravana
+            Gardens aspires
+            to
+            be optimistic, reminiscing "Back to Origins" and reaching out to the roots of authentic/ healthier
+            choices.
+            No employee was disadvantaged by the current challenging tourism industry, as even the local farmers
+            were spiritually and physically uplifted by this initiative with a new beacon of hope, which was
+            powered
+            by the hotel staff and sourced mostly from direct farmers.</p>
+          <div class="hero_text_bottom d-block d-md-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #page id="credentials" class="page our_credentials ">
+    <div class="container h-100 d-grid justify-content-center align-items-center">
+      <div class="row d-block d-md-none">
+        <div class="text_div px-4">
+          <h2 class="heading_1 white_text ">Credentials</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+      <app-credentials [is_active]="credentials_active"></app-credentials>
+    </div>
+
+  </div>
+  <div #page id="ravana_garden" class="page">
+    <div class="container sec p-0 h-100   position-relative   section">
+      <div class="row d-block d-md-none mb-5">
+        <div class="text_div px-4">
+          <h2 class="heading_1 white_text ">Ravana Garden</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+      <div class="row h-100 mt-5 d-grid align-items-center">
+        <div class="col-md-8 col-10 h-auto  mx-auto  p-0 px-md-5">
+
+          <div class="row ">
+            <p class=" mt-4 white_text pragraph "> Leading the way in conscientious tourism, Ravana
+              Garden is a sustainable luxury boutique hotel in Sri Lanka. Look onto luscious green paddy fields
+              on one side and a golden beach on the other, perfect for rejuvenating the soul. With a bird
+              sanctuary in the neighbourhood amongst other attractions, you can also indulge in succulent
+              organic dishes that are both nutritious and delicious. Ravana Garden is so much more than a stay
+              away. It is wholly, an experience in itself.</p>
+          </div>
+          <div class="col-12 col--md-10 mx-auto mt-4 ravana_back d-grid align-items-center">
+            <a rel=" back to origins ravana garden " class="po" href="https://ravanagarden.com/concept/" target="_blank">
+              <div class="ravana_mid p-5  my-5 col-10 col-md-6 d-grid align-items-center">
+
+                <img src="assets/images/about_us/rawana_garden_logo.webp" alt="back to origins rawana garden logo" class="m-auto"
+                  srcset="">
+
+                <button class=" w-100 mt-5 m-auto golden_btn btn  white_text">Visit Us</button>
+
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div #page id="footer" class="page ">
+    <div class="container-fluid h-100 d-grid align-content-end  p-0">
+      <div class="row my-5 text-center">
+        <!-- <h4 class="white_text" >Follow Us on Instagram @backtoorigins.lk</h4> -->
+
+      </div>
+      <!-- <div class="row px-0" id="box1" *ngIf="instagram_data">
+        <ng-container *ngFor="let data of instagram_data.media.data;let i=index" class=" instagram_box">
+          <div *ngIf="data.media_type=='IMAGE' && i<5" class="  col m-auto p-0">
+            <a href={{data.permalink}}>
+              <img src={{data.media_url}} alt="" class="instagram_box_img w-100 h-100" srcset="">
+            </a>
+          </div>
+        </ng-container>
+
+
+      </div> -->
+      <app-footer-sec></app-footer-sec>
+    </div>
+  </div>
+
+
+
+
+
+</section>
+<div class="">
+  <!-- *ngIf="current_section!=items.length" -->
+  <div id='{{getId()}}' #scroll_btn class="scroll_btn  scroll_btn_down d-none d-md-block" (click)="toNext()"> </div>
+</div>

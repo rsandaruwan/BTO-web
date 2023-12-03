@@ -1,0 +1,45 @@
+<div class="side_nav_parent">
+  <div class="side_nav">
+    <div class="line"></div>
+    <div class="points">
+      <div *ngFor="let element of items ">
+      
+          <div id="point_{{element.id}}" class="point " #item (click)="callparent(element.id)">
+         
+            <div class="row" >
+              <div class="col-2">
+
+                <div class="ball" *ngIf="element.name" ></div>
+               
+
+              </div>
+              <div class="col-8 text" (click)="activate(element.id)">{{element.name}} </div>
+             
+
+            </div>
+          </div>
+          <div  *ngFor="let child of element.children ">
+      
+            <div  *ngIf="element.active && child.active" id="point_child_{{child.id}}" class="point_child " #item>
+              <div class="row">
+                <div class="col-2">
+                  <div class="white_ball"></div>
+                </div>
+                  <div class="col-8 text  white_text" (click)="activate(child.id)">{{child.name}}</div>
+              </div>
+            </div>
+            <div  *ngIf="element.active && !child.active" id="point_child_{{child.id}}" class="point_child " #item>
+              <div class="row">
+                <div class="col-2">
+                  <div class="ball"></div>
+                </div>
+                  <div class="col-8 text small_text " (click)="activate(child.id)">{{child.name}}</div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

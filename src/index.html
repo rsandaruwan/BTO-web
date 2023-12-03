@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Back To Origins</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Ravana Garden's Back to Origins collection features authentic/sustainably produced Ceylon spices, spice & herbal blends, and ready-to-eat products, allowing ...">
+  <link rel="icon" type="image/x-icon" href="./assets/images/fav_icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/images/hero/bto_hero_1.webp" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/images/hero/bto_hero_2.webp" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/images/hero/bto_hero_3.webp" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/images/hero/bto_hero_4.webp" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/images/hero/bto_hero_5.webp" type="image/webp">
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/videos/About_back_to_origin_concept_lfgehy.webm"
+    type="video/webm">
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-NLG4LJXR');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="mat-typography">
+  <!-- Google Tag Manager (noscript) --><noscript><iframe
+      src=https://www.googletagmanager.com/ns.html?id=GTM-NLG4LJXRheight="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+  <app-root></app-root>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>  -->
+  <script src="assets/js/sub.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/jquery-1.12.4.min.js"></script>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script id="rendered-js">
+    var fv = undefined;
+    var width = window.innerWidth;
+
+    $(document).ready(function () {
+      if (width > 500) {
+        if (document.getElementById('fullview')) {
+          fv = $("#fullview").fullView({
+            //Navigation
+            dots: false,
+            dotsPosition: "left",
+            dotsTooltips: false,
+
+
+            //Scrolling
+            easing: "swing",
+            backToTop: false,
+
+            // Accessibility
+            keyboardScrolling: true,
+
+            // Callback
+            onScrollEnd: function (currentView, preView) {
+              console.log("Current", currentView);
+              console.log("Previus", preView);
+            }
+          });
+
+
+          $("#down").click(function () {
+            // To Scroll Down 1 Section
+
+            fv.data("fullView").scrollDown();
+
+            //To Scroll Up 1 Section
+            // fv.data('fullView').scrollDown();
+          });
+
+          // $("#select").change(function () {
+          //   // To Scroll to Specfic Section
+          //   fv.data("fullView").scrollTo($(this).val());
+          // });
+          setTimeout(() => {
+
+            $(".snc").on("click", function () {
+              var elementId = $(this).attr("id");
+              fv.data("fullView").scrollTo(elementId);
+            });
+
+            if (document.getElementById('home')) {
+              fv.data("fullView").scrollTo(1);
+            } else {
+              fv.data("fullView").scrollTo(0);
+            }
+          }, 2000);
+
+
+
+
+          $(".scroll_btn_down").on("click", function () {
+            var value = $(this).attr("id");
+            if (value == "0") {
+              fv.data("fullView").scrollDown();
+            } else {
+              fv.data("fullView").scrollTo(value)
+            }
+
+          });
+        } else {
+        }
+      }
+
+
+    });
+
+
+    //# sourceURL=pen.js
+  </script>
+</body>
+
+</html>

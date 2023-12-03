@@ -1,0 +1,234 @@
+<div class="parent-container w-100 back overflow-hidden">
+  <div class="leaf_top d-none d-md-block">
+    <div class="content">
+      <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+
+  </div>
+  <div class="leaf_middle d-none d-md-block">
+    <div class="content d-flex flex-row-reverse">
+      <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+    </div>
+  </div>
+
+
+  <div class="container px-0 contact_back ">
+    <div class="row h-25 pt-5">
+
+      <div class="col-lg-6 col-12 d-none d-md-block  mt-5">
+        <div class="text_div mx-0  mt-5">
+          <h2 class="heading_1 white_text pt-3">Payment Confirmation</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-12 d-block d-md-none  ">
+        <div class="text_div mx-0 mt-3 ">
+          <h2 class="heading_1 white_text pt-3">Payment Confirmation</h2>
+          <hr class="w-50">
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 ">
+      <div *ngIf="!error && !response" class="col-10  col-md-7 text-center d-grid black_box m-auto p-5" >
+        <p class="white_text pending_test col-12">We are processing the status of your payment. Hold on, please! </p>
+        <div class="col-12 col-md-6 pt-md-5 pt-2 image m-auto">
+          <ng-lottie height="100%" [options]="options1"></ng-lottie>
+        </div>
+      </div>
+      <div *ngIf="!error && response" class="col-12 black_box m-auto mb-5 p-5">
+        <h4 class="green_text heading_2" style="font-weight: 300 !important;">Payment Success!</h4>
+        <p class="white_text mt-4 status_head">Payment Information :</p>
+        <div class="row">
+          <p class="white_text col-12 col-md-4 mt-2 status_data">Paid Date : <span>{{paid_date}} | {{paid_time}}</span>
+          </p>
+          <p class="white_text col-12 col-md-4 mt-2 status_data">Payment Method : Online Payment</p>
+          <p class="white_text col-12 col-md-4 mt-2 status_data">Status : Paid</p>
+        </div>
+        <hr class="braker">
+        <p class="white_text mt-4 status_head">Your Order Summary :</p>
+
+        <p class="white_text col-12 col-md-4 mt-2 status_data">The following is a summary of your purchased order.</p>
+
+        <div class=" w-100 mt-2">
+
+          <div class="d-none d-md-block">
+            <div class="d-flex w-100 table_head px-3">
+              <div class="col-4 ">
+                <p class="text-uppercase my-2 black-text th"><span class="mx-2 bold">|</span>Product Name</p>
+              </div>
+              <div class="col-3">
+                <p class="text-uppercase my-2 black-text th"><span class="mx-2 bold">|</span>ITEM PRICE</p>
+              </div>
+              <div class="col-3">
+                <p class="text-uppercase my-2 black-text th"><span class="mx-2 bold">|</span>Quantity</p>
+              </div>
+              <div class="col-2">
+                <p class="text-uppercase my-2 black-text th"><span class="mx-2 bold">|</span>Amount</p>
+              </div>
+            </div>
+            <ng-container *ngFor="let product of response.items">
+              <div class="d-flex w-100 table-data px-3 mt-2">
+                <div class="col-4 ">
+                  <p class=" my-2 white_text px-3">{{product.product_variant_name}}</p>
+                </div>
+                <div class="col-3">
+                  <p class=" my-2 white_text  px-3">{{currency}} {{product.product_price.toFixed(2)}}</p>
+                </div>
+                <div class="col-3">
+                  <p class=" my-2 white_text  px-3">{{product.qty}}</p>
+                </div>
+                <div class="col-1 text-end">
+                  <p class=" my-2 white_text  px-4">{{currency}} {{(product.product_price*product.qty).toFixed(2)}}</p>
+                </div>
+              </div>
+            </ng-container>
+
+          </div>
+          <!-- FOR MOBILE -->
+          <div class="d-block d-md-none">
+            <ng-container *ngFor="let product of response.items">
+              <div class="row table-data px-1 mt-2">
+                <div class="col-12 ">
+                  <p class=" my-2 mb-0 gray_text px-1">product</p>
+                </div>
+                <div class="col-12 ">
+                  <p class=" my-2 mt-0 white_text px-1">{{product.product_variant_name}}</p>
+                </div>
+             
+                <div class="col-4">
+                  <p class=" my-2 mt-0 white_text  px-0"><span class="gray_text mx-2">price</span>{{currency}} {{product.product_price.toFixed(2)}}</p>
+                </div>
+                <div class="col-4">
+                  <p class=" my-2 mt-0 white_text  px-0"><span class="gray_text  mx-2">qty</span>{{product.qty}}</p>
+                </div>
+                <div class="col-4 text-end">
+                  <p class=" my-2 mt-0 white_text  px-0">{{currency}} {{(product.product_price*product.qty).toFixed(2)}}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+
+
+
+          <div class="d-none d-md-flex w-100 px-3 mt-2">
+            <div class="col-9 ">
+            </div>
+            <div class="col-1">
+              <p class=" my-2 text-uppercase white_text text-end  ">GROSS TOTAL :</p>
+            </div>
+            <div class="col-1 text-end">
+              <p class=" my-2 white_text  px-4">{{currency}} {{gross_total.toFixed(2)}}</p>
+            </div>
+          </div>
+
+          <!-- FOR MOBILE -->
+          <div class="d-flex d-md-none w-100 px-0 mt-2">
+            <div class="col-4 ">
+            </div>
+            <div class="col-5">
+              <p class=" my-2 text-uppercase white_text text-end  ">GROSS TOTAL :</p>
+            </div>
+            <div class="col-3 text-end">
+              <p class=" my-2 white_text  px-2">{{currency}} {{gross_total.toFixed(2)}}</p>
+            </div>
+          </div>
+            <!-- FOR MOBILE -->
+            <div class="d-flex d-md-none w-100 px-0 mt-2">
+              <div class="col-4 ">
+              </div>
+              <div class="col-5">
+                <p class=" my-2 text-uppercase white_text text-end  ">Shipping :</p>
+              </div>
+              <div class="col-3 text-end">
+                <p class=" my-2 white_text  px-2">{{currency}} {{response.shipping_charge.toFixed(2)}}</p>
+              </div>
+            </div>
+
+
+          <div class="d-none d-md-flex w-100 px-3 mt-2">
+            <div class="col-9 ">
+            </div>
+            <div class="col-1">
+              <p class=" my-2 text-uppercase white_text text-end  ">Shipping :</p>
+            </div>
+            <div class="col-1 text-end">
+              <p class=" my-2 white_text  px-4">{{currency}}{{response.shipping_charge.toFixed(2)}}</p>
+            </div>
+          </div>
+
+
+          <div class="row p-0 my-2 ">
+            <div class="col-12 col-md-9 order-1 order-md-0 pt-4 pt-md-0">
+              <p class="white_text status_head col-12">We will send the invoice to your mail. Thank you for shopping
+                with Us!</p>
+            </div>
+            <div class="col-6 d-block d-md-none"></div>
+            <div class=" col-6 col-md-3 d-flex table_head order-0 order-md-1">
+              <div class="col-8 col-md-4 p-2 ">
+                <p class="text-uppercase my-2 black-text bold th">Net Total :</p>
+              </div>
+
+              <div class="col-4 col-md-3 text-end px-2 py-2 ">
+                <p class="text-uppercase my-2 black-text bold th">{{currency}}{{response.shipping_charge+gross_total}}</p>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <button class="line_btn mt-3" (click)="toHome()">
+            Continue
+          </button>
+
+
+
+
+
+
+        </div>
+
+      </div>
+      <div *ngIf="error" class="col-12 black_box m-auto mb-5 p-5">
+        <h4 class="danger_text heading_2" style="font-weight: 300 !important;">Payment Failed!</h4>
+        <p class="white_text mt-4 status_head">Payment Information :</p>
+        <div class="row">
+          <p class="white_text col-12 col-md-6 col-md-4 mt-2 status_data">Paid Date : <span>15 Feb, 2023 | 08:54 AM</span> </p>
+          <p class="white_text col-12 col-md-6 col-md-4 mt-2 status_data">Payment Method : Card Payments</p>
+          <p class="white_text col-12 col-md-6 col-md-4 mt-2 status_data">Status : <span class="danger_text">Failed</span></p>
+        </div>
+        <hr class="braker">
+
+
+        <p class="white_text col-12 col-md-6 col-md-4 mt-3 mx-auto text-center status_data">We regret to notify you that your
+          payment was unsuccessful. Please check your payment method again. </p>
+
+        <div class=" col-6 col-md-3 my-5 round_image m-auto">
+          <ng-lottie height="100%" [options]="options"></ng-lottie>
+        </div>
+        <div class="col-12 col-md-4 m-auto">
+          <div class="row">
+            <div class="col-6">
+              <button class="line_btn py-3 px-2 w-100 mt-3" (click)="toCart()">
+                Retry Payment
+              </button>
+            </div>
+
+            <div class="col-6 p-0 p-md-auto">
+              <button class="line_btn py-3 px-2 w-100 mt-3" (click)="toProduct()">
+                Continue Shopping
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,158 @@
+.back{
+
+  // background: url("/assets/images/contact/contact_back.webp") no-repeat;
+  // background-size: contain;
+ 
+ }
+ .leaf_top {
+  position: absolute;
+  top: 0;
+  z-index: 1050;
+  .content {
+    width: fit-content;
+    height: fit-content;
+  }
+  img{
+    opacity: 70%;
+  }
+}
+.leaf_middle {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  z-index: 1050;
+  .content {
+    width: fit-content;
+    height: fit-content;
+  }
+  img{
+    opacity: 50%;
+  }
+  
+}
+ .background_fix{
+  background: url("/assets/images/new/back_teansparent.webp") no-repeat;
+  background-size: cover;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+ }
+
+ .page {
+   height: 100vh !important;
+   // width: 100vw;
+   overflow: hidden !important;
+ }
+
+ .image_side{
+  height: 36vh;
+ }
+  .parent-container {
+  //  height: 100vh;
+  //  position: fixed;
+  }
+.contact_from_back{
+  //height: 100%;
+  width: 100%;
+  background: url("/assets/images/contact/contact_form_back.webp") no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+}
+.form_mat{
+  background-color: #333333 !important;
+  padding: 2%;
+  border-radius: 20px;
+  margin-top: 3%;
+color: white;
+}
+.main_img{
+  position: absolute;
+  top: 45%;
+  right: 0%;
+}
+.second_img{
+  position: absolute;
+  bottom: 0%;
+  left: -16%;
+}
+@media screen and (min-width: 200px) {
+  .parent-container {
+     height: auto;
+     position: block;
+    }
+    .page {
+      height: auto !important;
+      // width: 100vw;
+      overflow: visible !important;
+    }
+    .image_side{
+      height: 42vh;
+
+     }
+  
+     .second_img{
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 36%;
+    }
+    .contact_from_back{
+      background: url("/assets/images/contact/contact_form_back_mobile.webp") no-repeat;
+      background-size: cover;
+      padding-bottom: 3%;
+    }
+    .back{
+
+      // background: transparent;
+      // background-size: cover;
+     
+     }
+     .background_fix{
+
+      background: transparent;
+      background-size: cover;
+     
+     }
+     .contact_back{
+      height: auto !important;
+     }
+}
+@media screen and (min-width: 726px) {
+  .parent-container {
+      height: auto;
+    //  position: fixed;
+    }
+    .page {
+      height: 100vh !important;
+      // width: 100vw;
+      overflow: hidden !important;
+    }
+    .image_side{
+      height: auto;
+     }
+     .second_img{
+      position: absolute;
+      bottom: 0%;
+      left: -16%;
+      width: auto;
+    }
+    .contact_from_back{
+      background: url("/assets/images/contact/contact_form_back.webp") no-repeat;
+      background-size: cover;
+
+    }
+    .back{
+
+      // background: url("/assets/images/contact/contact_back.webp") no-repeat;
+      // background-size: contain;
+     
+     }
+     .background_fix{
+      background: url("/assets/images/new/back_teansparent.webp") no-repeat;
+      background-size: cover;
+     }
+     .contact_back{
+      height: 100vh !important;
+     }
+}

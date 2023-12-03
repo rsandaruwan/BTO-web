@@ -1,0 +1,319 @@
+<div class="leaf_top d-none d-md-block">
+  <div class="content">
+    <img src="/assets/images/new/leaf_top.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+
+</div>
+<div class="leaf_middle d-none d-md-block">
+  <div class="content d-flex flex-row-reverse">
+    <img src="/assets/images/new/leaf_middle.webp" class="col-xxxl-12 col-md-8" alt="the back to origins" srcset="">
+  </div>
+</div>
+<div class="container-fluid back p-0  d-none d-md-block">
+
+</div>
+<section class="">
+  <div class="container mt-5">
+    <div *ngIf="product" class="back_to_product_div" (click)="back_to_product()">
+      <div class="content p-2 d-flex">
+        <div class="col-4 round_image  product_image_back d-flex">
+          <img src={{product.product_main_image}} class=" ratio ratio-1x1 w-75 m-auto" alt="the back to origins" srcset="">
+        </div>
+        <div class="col-8 m-auto px-2">
+          <p class="green_text m-0">Go Back to</p>
+          <p class="white_text two_line">{{product.product_name}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row m-0 p-0 pt-5 w-100 h-100 align-items-center">
+      <div class="col-12 col-md-4  p-0 p-md-2">
+        <div class="text_div mt-4 pt-0 ">
+          <h2 class="heading_1 text-white mb-0 pt-5 pt-md-0 col-12 ">{{recipe.recipe_name}}</h2>
+          <hr class="w-75">
+        </div>
+        <div class="col-10 col-md-12 mt-5 m-auto">
+          <!-- <img src='../../../assets/images/image4.png' alt="back to origins {{recipe.recipe_name}}" class="w-100  white_border"
+            srcset=""> -->
+          <img src={{recipe.recipe_main_image}} alt="back to origins {{recipe.recipe_name}}" class="w-100  white_border"
+            srcset="">
+
+        </div>
+        <div class="vrslider d-none d-md-block row px-3 px-md-0 mt-md-5 mobile_black">
+
+
+          <div class="row mt-2 ">
+            <p class="paragraph1 green_text ">DISCOVER RECIPES</p>
+            <h2 *ngIf="recipes.length>0" class="heading_2 white_text mb-0">You May Also Like</h2>
+          </div>
+
+
+          <div class="col-12 text-end" *ngIf="recipes.length>0">
+            <p class="green_text  paragraph btn " (click)="goto_more_recipes()"> View all ---></p>
+          </div>
+          <div class="col-8 m-auto" *ngIf="recipes.length==0">
+            <button class="btn green_btn black-text d-flex justify-content-center align-items-center w-100 p-3 mt-4"
+              (click)="goto_more_recipes()">View All Recipes</button>
+
+          </div>
+
+          <swiper *ngIf="recipes.length>1" [navigation]="true" [spaceBetween]="10" [loop]="false" [slidesPerView]="2"
+            [freeMode]="true" [speed]="500" [watchSlidesProgress]="true" class="other_recipe_mySwiper w-100 mt-3 px-3">
+
+
+
+            <ng-container *ngFor="let other_recipe of recipes;let i = index">
+              <ng-template swiperSlide>
+                <!-- *ngIf="other_recipe!=recipe" -->
+
+                <div class="product_image_wrapper white_border overflow-hidden position-relative row m-auto"
+                  *ngIf="other_recipe.recipe_id!=recipe.recipe_id">
+                  <img class="w-100 m-auto  p-0 " src={{other_recipe.recipe_main_image}}
+                    alt="back to origins {{other_recipe.recipe_name}}">
+                  <p class=" recipe_name col-12  mt-4 m-auto white_text paragraph4 text-center">
+                    {{other_recipe.recipe_name}}</p>
+                </div>
+              </ng-template>
+            </ng-container>
+
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+          </swiper>
+          <div class="col-6 m-auto" *ngIf="recipes.length==1">
+            <div class="product_image_wrapper white_border position-relative  row m-auto overflow-hidden">
+              <img class="col-12 m-auto  p-0 " src={{recipes[0].recipe_main_image}}
+                alt="back to origins {{recipes[0].recipe_name}}">
+              <p class="  recipe_name col-10 m-auto white_text text-center">{{recipes[0].recipe_name}}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-8 p-0 p-md-2">
+        <div class="product_details col-12 pt-5 pt-md-0 col-md-10">
+
+          <div class="bottom pt-3 px-0">
+            <div class="row h-100">
+              <mat-tab-group class="h-100" animationDuration="1000ms">
+                <mat-tab label="Description" class="h-100">
+                  <div class="col-12 m-auto px-5 mt-4 ">
+
+                    <p class="paragraph  white_text">{{recipe.recipe_summary}}</p>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Ingredients" class="h-100">
+                  <div class="col-12 m-auto px-3 mt-4 ">
+
+                    <div class="row mt-3" *ngFor="let r_ingredient of recipe.recipe_ingredient">
+                      <div class="col-1">
+                        <mat-checkbox class="example-margin m-auto" *ngIf="r_ingredient.product_variant_id" (change)="additem(r_ingredient.product_variant_id)"></mat-checkbox>
+                      </div>
+                      <div class="col-11">
+                        <p class="white_text">{{r_ingredient.recipe_ingredient_used}}</p>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div *ngIf="toCart_itemsArray.length>0" class="col-6 mt-4 m-auto"><button class="green_btn btn m-auto py-3 w-100" (click)="addtocart()">Add
+                      Checked Items to
+                      Cart</button></div>
+                </mat-tab>
+                <mat-tab label="Steps" class="h-100">
+                  <div class=" instructions_tab col-12 m-auto px-3 mt-4 ">
+                    <div class="line"></div>
+                    <div class="row mt-2" *ngFor="let step of recipe.recipe_step">
+                      <div class="col-1">
+                        <div class="ball"></div>
+                      </div>
+                      <div class="col-11">
+                        <h2 class="white_text heading_2 mb-2 ">{{step.recipe_step_name}}</h2>
+                        <p class="white_text">{{step.recipe_step_description}}</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+
+            </div>
+          </div>
+        </div>
+        <div class=" other_product col-md-10 mt-4 col-12  m-auto">
+          <div class=" w-100 p-3 mt-5 mt-md-0">
+            <h2 class="green_text m-0">SPICES</h2>
+            <h2 class="white_text">Featured in this Recipe </h2>
+            <swiper *ngIf="recipe_products.length>2"
+              style="--swiper-navigation-color: rgb(7, 3, 3);--swiper-pagination-color: #fff" [slidesPerView]="3"
+              [centeredSlides]="true" [spaceBetween]="40" [loop]="false" [navigation]="false" [speed]="1000"
+              class="mySwiper_other w-100">
+              {{recipe_products}}
+              <ng-container *ngFor="let recipe_product of recipe_products">
+                <ng-container *ngFor="let product_variant of recipe_product.product_variants">
+                  <ng-template swiperSlide class="pt-0 px-2">
+
+                    <div class="product_image_wrapper row m-auto">
+                      <img class=" col-8 m-auto p-1 " src={{product_variant.product_images[0].image_path}}
+                        alt="back to origins {{product_variant.product_variant_name}}">
+                      <p class="white_text text-center p-0 mt-1">{{product_variant.product_variant_name}}</p>
+                      <!-- <mat-select id="select_{{recipe_product.product_id}}"
+                      [(value)]="recipe_product.product_variants[0].product_variant_id">
+                      <mat-option *ngFor="let product_variant of recipe_product.product_variants"
+                        [value]="product_variant.product_variant_id">
+                        <div class="w-100 d-flex overflow-hidden">
+                          <p class=" w-75 text-start">{{product_variant.product_variant_name}}</p>
+                        </div>
+                      </mat-option>
+                    </mat-select> -->
+                    </div>
+
+
+
+                  </ng-template>
+                </ng-container>
+              </ng-container>
+
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </swiper>
+            <ng-container *ngIf="recipe_products.length==2">
+              <div class="w-100 d-flex">
+                <!-- <div class="col-4 m-auto" >
+                  <div class="product_image_wrapper row m-auto">
+                    <img class=" col-8 m-auto p-1 " src={{recipe_products[0].product_main_image}} alt="back to origins {{recipe_products[0].product_name}}">
+                    <p class="white_text text-center p-0 mt-1">{{recipe_products[0].product_name}}</p>
+                    <mat-select id="select_{{recipe_products[0].product_id}}"
+                      [(value)]="recipe_products[0].product_variants[0].product_variant_id">
+                      <mat-option *ngFor="let product_variant of recipe_products[0].product_variants"
+                        [value]="product_variant.product_variant_id">
+                        <div class="w-100 d-flex overflow-hidden">
+                          <p class=" w-75 text-start">{{product_variant.product_variant_name}}</p>
+                        </div>
+                      </mat-option>
+                    </mat-select>
+                  </div>
+                </div> -->
+                <ng-container *ngFor="let recipe_product of recipe_products">
+                  <ng-container *ngFor="let product_variant of recipe_product.product_variants">
+                    <div class="col-4 m-auto">
+
+                      <div class="product_image_wrapper row m-auto">
+                        <img class=" col-8 m-auto p-1 " src={{product_variant.product_images[0].image_path}}
+                          alt="back to origins {{product_variant.product_variant_name}}">
+                        <p class="white_text text-center p-0 mt-1">{{product_variant.product_variant_name}}</p>
+                        <!-- <mat-select id="select_{{recipe_product.product_id}}"
+                        [(value)]="recipe_product.product_variants[0].product_variant_id">
+                        <mat-option *ngFor="let product_variant of recipe_product.product_variants"
+                          [value]="product_variant.product_variant_id">
+                          <div class="w-100 d-flex overflow-hidden">
+                            <p class=" w-75 text-start">{{product_variant.product_variant_name}}</p>
+                          </div>
+                        </mat-option>
+                      </mat-select> -->
+                      </div>
+
+
+
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+
+            </ng-container>
+            <div class="w-100 d-flex" *ngIf="recipe_products.length==1">
+
+              <!-- <div class="product_image_wrapper row m-auto">
+                <img class=" col-8 m-auto p-1 " src={{recipe_products[0].product_main_image}} alt="back to origins {{recipe_products[0].product_name}}">
+                <p class="white_text text-center p-0 mt-1">{{recipe_products[0].product_name}}</p>
+                <mat-select id="select_{{recipe_products[0].product_id}}"
+                  [(value)]="recipe_products[0].product_variants[0].product_variant_id">
+                  <mat-option *ngFor="let product_variant of recipe_products[0].product_variants"
+                    [value]="product_variant.product_variant_id">
+                    <div class="w-100 d-flex overflow-hidden">
+                      <p class=" w-75 text-start">{{product_variant.product_variant_name}}</p>
+                    </div>
+                  </mat-option>
+                </mat-select>
+              </div> -->
+
+
+              <ng-container *ngFor="let product_variant of recipe_products[0].product_variants">
+
+                <div class="col-4 m-auto">
+                  <div class="product_image_wrapper row m-auto">
+                    <img class=" col-8 m-auto p-1 " src={{product_variant.product_images[0].image_path}}
+                      alt="back to origins {{product_variant.product_variant_name}}">
+                    <p class="white_text text-center p-0 mt-1">{{product_variant.product_variant_name}}</p>
+                  </div>
+
+                </div>
+
+              </ng-container>
+
+            </div>
+          </div>
+          <!-- *ngIf="recipes.length>1" -->
+          <div class="row d-block d-md-none  mobile_top"></div>
+
+          <div class="row hero_text_bottom  d-block d-md-none"></div>
+        </div>
+        <div *ngIf="recipes.length>0" class="vrslider d-block d-md-none row px-3 px-md-0 mt-5 mobile_black">
+
+
+          <div class="row mt-2 ">
+            <p class="paragraph1 green_text ">DISCOVER RECIPES</p>
+            <h2 class="heading_2 white_text mb-0">You May Also Like</h2>
+          </div>
+
+
+          <div class="col-12 text-end">
+            <p class="green_text  paragraph btn " (click)="goto_more_recipes()"> View all ---></p>
+          </div>
+
+
+          <swiper *ngIf="recipes.length>1" [navigation]="true" [spaceBetween]="10" [loop]="false" [slidesPerView]="3"
+            [centeredSlides]="true" [freeMode]="true" [speed]="500" [watchSlidesProgress]="true"
+            class="other_recipe_mySwiper w-100 mt-3 px-3">
+
+
+
+            <ng-container *ngFor="let other_recipe of recipes;let i = index">
+              <ng-template swiperSlide *ngIf="i!=0">
+                <!-- *ngIf="other_recipe!=recipe" -->
+
+                <div class="product_image_wrapper  row m-auto" *ngIf="other_recipe.recipe_id!=recipe.recipe_id">
+                  <img class="col-8 m-auto  p-0 round_image" src={{other_recipe.recipe_main_image}}
+                    alt="back to origins {{other_recipe.recipe_name}}">
+                  <p class=" col-12 p-0 mt-4 m-auto white_text paragraph4 text-center">{{other_recipe.recipe_name}}</p>
+                </div>
+              </ng-template>
+            </ng-container>
+
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+          </swiper>
+          <div class="col-6 m-auto" *ngIf="recipes.length==1">
+            <div class="product_image_wrapper  row m-auto">
+              <img class="col-8 m-auto  p-0 round_image" src={{recipes[0].recipe_main_image}}
+                alt="back to origins {{recipes[0].recipe_name}}">
+              <p class=" col-10 m-auto white_text text-center">{{recipes[0].recipe_name}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<div #page id="footer" class=" pt-5 pt-md-0">
+  <div class="container-fluid h-100 d-grid align-content-end  p-0">
+
+    <app-footer-sec></app-footer-sec>
+  </div>
+</div>

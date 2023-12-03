@@ -1,0 +1,9 @@
+<app-navigation [cart_qty]="cart_qty" ></app-navigation>
+<!-- *ngIf="spinnerService.visibility | async" -->
+<div  class="dark-overlay" *ngIf="spinnerService.visibility | async">
+  <!-- <mat-spinner class="spinner" color="main" mode="indeterminate" ></mat-spinner> -->
+  <!-- <video class="w-100 h-100" src="assets/videos/leaves.gif" muted autoplay></video> -->
+  <ng-lottie height="100%" [options]="options"></ng-lottie>
+  </div>
+
+<router-outlet (activate)="onActivate()"></router-outlet>
